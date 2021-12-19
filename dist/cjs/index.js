@@ -3462,15 +3462,17 @@ function useThemeEngine() {
             inverseOnSurface: "#1c1b1f",
             inverseSurface: "#e6e1e5",
         },
-    }), theme = _c[0]; _c[1];
+    }), theme = _c[0], setTheme = _c[1];
     react.useEffect(function () {
         function changeTheTheme() {
             return __awaiter(this, void 0, void 0, function () {
+                var newTheme;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, core(URL)];
                         case 1:
-                            _a.sent();
+                            newTheme = _a.sent();
+                            setTheme(newTheme);
                             injectTheme();
                             return [2 /*return*/];
                     }

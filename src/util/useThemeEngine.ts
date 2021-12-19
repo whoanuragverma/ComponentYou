@@ -65,13 +65,14 @@ export default function useThemeEngine() {
     useEffect(() => {
         async function changeTheTheme() {
             const newTheme = await core(URL);
-            setTheme(newTheme);
             injectTheme();
         }
 
         changeTheTheme();
-    }, [URL, active]);
-
+    }, [URL]);
+    useEffect(() => {
+        injectTheme();
+    }, [active]);
     function injectTheme() {
         const root = document.querySelector<HTMLElement>(":root");
         Object.entries(active === "light" ? theme.light : theme.dark).forEach(

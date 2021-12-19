@@ -3458,17 +3458,15 @@ function useThemeEngine() {
             inverseOnSurface: "#1c1b1f",
             inverseSurface: "#e6e1e5",
         },
-    }), theme = _c[0], setTheme = _c[1];
+    }), theme = _c[0]; _c[1];
     useEffect(function () {
         function changeTheTheme() {
             return __awaiter(this, void 0, void 0, function () {
-                var newTheme;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, core(URL)];
                         case 1:
-                            newTheme = _a.sent();
-                            setTheme(newTheme);
+                            _a.sent();
                             injectTheme();
                             return [2 /*return*/];
                     }
@@ -3476,7 +3474,10 @@ function useThemeEngine() {
             });
         }
         changeTheTheme();
-    }, [URL, active]);
+    }, [URL]);
+    useEffect(function () {
+        injectTheme();
+    }, [active]);
     function injectTheme() {
         var root = document.querySelector(":root");
         Object.entries(active === "light" ? theme.light : theme.dark).forEach(function (_a) {

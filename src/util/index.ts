@@ -1,4 +1,3 @@
-import changeTheme from "./changeTheme";
-import useTheme from "./useTheme";
+import useThemeEngine from "./useThemeEngine";
 
-export { changeTheme, useTheme };
+export { useThemeEngine };

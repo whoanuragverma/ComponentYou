@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "rollup": "rollup -c"
+        "rollup": "npx rollup -c"
     },
     "author": "Anurag Verma",
     "license": "MIT",

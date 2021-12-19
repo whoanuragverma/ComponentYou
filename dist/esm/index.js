@@ -3468,6 +3468,7 @@ function useThemeEngine() {
                         case 0: return [4 /*yield*/, core(URL)];
                         case 1:
                             newTheme = _a.sent();
+                            console.log(newTheme.dark, newTheme.light);
                             setTheme(newTheme);
                             injectTheme();
                             return [2 /*return*/];

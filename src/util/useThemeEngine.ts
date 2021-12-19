@@ -65,6 +65,7 @@ export default function useThemeEngine() {
     useEffect(() => {
         async function changeTheTheme() {
             const newTheme = await core(URL);
+            console.log(newTheme.dark, newTheme.light);
             setTheme(newTheme);
             injectTheme();
         }

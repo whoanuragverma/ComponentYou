@@ -1,0 +1,218 @@
+*, ::before, ::after {
+    border-color: currentColor;
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+    --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+    --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+    --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+    --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+    --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+    --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+    --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+    --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+    --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+:root {
+    --primary: #6750a4;
+    --onPrimary: #ffffff;
+    --primaryContainer: #eaddff;
+    --onPrimaryContainer: #21005d;
+    --secondary: #625b71;
+    --onSecondary: #ffffff;
+    --secondaryContainer: #e8def8;
+    --onSecondaryContainer: #1d192b;
+    --tertiary: #7d5260;
+    --onTertiary: #ffffff;
+    --tertiaryContainer: #ffd8e4;
+    --onTertiaryContainer: #31111d;
+    --error: #b3261e;
+    --errorContainer: #f9dedc;
+    --onError: #ffffff;
+    --onErrorContainer: #410e0b;
+    --background: #fffbfe;
+    --onBackground: #1c1b1f;
+    --surface: #fffbfe;
+    --onSurface: #1c1b1f;
+    --surfaceVariant: #e7e0ec;
+    --onSurfaceVariant: #49454f;
+    --outline: #79747e;
+    --inverseOnSurface: #f4eff4;
+    --inverseSurface: #313033;
+}
+
+.cy-button {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border-radius: 9999px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.cy-button:hover {
+    --tw-brightness: brightness(0.93);
+    filter: var(--tw-filter);
+}
+
+.cy-button:focus {
+    outline-color: var(--outline);
+}
+
+.cy-button:disabled {
+    opacity: 0.8;
+}
+
+.cy-button:hover:disabled {
+    cursor: auto;
+    filter: none;
+}
+
+.cy-button-primary {
+    border-style: none;
+    background-color: var(--primary);
+    color: var(--onPrimary);
+}
+
+.cy-button-primary:active {
+    --tw-shadow: 0 0 0 4px var(--onPrimaryContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-outline-primary {
+    border-width: 2px;
+    border-color: var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.cy-button-outline-primary:hover {
+    background-color: var(--primaryContainer);
+    color: var(--onPrimaryContainer);
+}
+
+.cy-button-outline-primary:active {
+    border-color: transparent;
+    --tw-shadow: 0 0 0 4px var(--onPrimaryContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-secondary {
+    border-style: none;
+    background-color: var(--secondary);
+    color: var(--onSecondary);
+}
+
+.cy-button-secondary:active {
+    --tw-shadow: 0 0 0 4px var(--onSecondaryContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-outline-secondary {
+    border-width: 2px;
+    border-color: var(--secondary);
+    background-color: transparent;
+    color: var(--secondary);
+}
+
+.cy-button-outline-secondary:hover {
+    background-color: var(--secondaryContainer);
+    color: var(--onSecondaryContainer);
+}
+
+.cy-button-outline-secondary:active {
+    border-color: transparent;
+    --tw-shadow: 0 0 0 4px var(--onSecondaryContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-tertiary {
+    border-style: none;
+    background-color: var(--tertiary);
+    color: var(--onTertiary);
+}
+
+.cy-button-tertiary:active {
+    --tw-shadow: 0 0 0 4px var(--onTertiaryContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-outline-tertiary {
+    border-width: 2px;
+    border-color: var(--tertiary);
+    background-color: transparent;
+    color: var(--tertiary);
+}
+
+.cy-button-outline-tertiary:hover {
+    background-color: var(--tertiaryContainer);
+    color: var(--onTertiaryContainer);
+}
+
+.cy-button-outline-tertiary:active {
+    border-color: transparent;
+    --tw-shadow: 0 0 0 4px var(--onTertiaryContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-error {
+    border-style: none;
+    background-color: var(--error);
+    color: var(--onError);
+}
+
+.cy-button-error:active {
+    --tw-shadow: 0 0 0 4px var(--onErrorContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-outline-error {
+    border-width: 2px;
+    border-color: var(--error);
+    background-color: transparent;
+    color: var(--error);
+}
+
+.cy-button-outline-error:hover {
+    background-color: var(--errorContainer);
+    color: var(--onErrorContainer);
+}
+
+.cy-button-outline-error:active {
+    border-color: transparent;
+    --tw-shadow: 0 0 0 4px var(--onErrorContainer);
+    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-button-md {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.cy-button-sm {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.cy-button-lg {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}

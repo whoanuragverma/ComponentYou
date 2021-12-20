@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "rollup": "npx rollup -c"
+        "build": "npx rollup -c --environment BUILD:production",
+        "watch": "npx rollup -c -w"
     },
     "author": "Anurag Verma",
     "license": "MIT",
@@ -12,9 +13,12 @@
         "@rollup/plugin-node-resolve": "^13.1.1",
         "@rollup/plugin-typescript": "^8.3.0",
         "@types/react": "^17.0.37",
+        "autoprefixer": "^10.4.0",
+        "postcss": "^8.4.5",
         "react": "^17.0.2",
         "rollup": "^2.61.1",
         "rollup-plugin-dts": "^4.0.1",
+        "rollup-plugin-postcss": "^4.0.2",
         "tslib": "^2.3.1",
         "typescript": "^4.5.4"
     },
@@ -27,5 +31,9 @@
     "files": [
         "dist"
     ],
-    "types": "dist/index.d.ts"
+    "types": "dist/index.d.ts",
+    "dependencies": {
+        "postcss-cli": "^9.1.0",
+        "tailwindcss": "^3.0.7"
+    }
 }

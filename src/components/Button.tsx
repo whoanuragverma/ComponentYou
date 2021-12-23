@@ -1,6 +1,6 @@
 type ButtonSize = "sm" | "md" | "lg";
 type ButtonType = "primary" | "secondary" | "tertiary" | "error";
-type ButtonVariant = "filled" | "outlined";
+type ButtonVariant = "filled" | "outlined" | "text";
 interface buttonProps {
     size: ButtonSize;
     disabled?: boolean;
@@ -19,27 +19,25 @@ export default function Button({
     return (
         <button
             className={`cy-button ${
-                type === "primary"
-                    ? variant === "filled"
-                        ? "cy-button-primary"
-                        : "cy-button-outline-primary"
-                    : type === "secondary"
-                    ? variant === "filled"
-                        ? "cy-button-secondary"
-                        : "cy-button-outline-secondary"
-                    : type === "tertiary"
-                    ? variant === "filled"
-                        ? "cy-button-tertiary"
-                        : "cy-button-outline-tertiary"
-                    : variant === "filled"
-                    ? "cy-button-error"
-                    : "cy-button-outline-error"
+                variant === "filled"
+                    ? "cy-button-filled"
+                    : variant === "outlined"
+                    ? "cy-button-outline"
+                    : "cy-button-text"
             } ${
                 size === "sm"
                     ? "cy-button-sm"
                     : size === "lg"
                     ? "cy-button-lg"
                     : "cy-button-md"
+            } ${
+                type === "primary"
+                    ? "cy-button-primary"
+                    : type === "secondary"
+                    ? "cy-button-secondary"
+                    : type === "tertiary"
+                    ? "cy-button-tertiary"
+                    : "cy-button-error"
             }`}
             {...rest}
         >

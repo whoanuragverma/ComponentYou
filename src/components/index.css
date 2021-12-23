@@ -1,4 +1,5 @@
-:root {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+html {
     --primary: #6750a4;
     --onPrimary: #ffffff;
     --primaryContainer: #eaddff;
@@ -24,45 +25,69 @@
     --outline: #79747e;
     --inverseOnSurface: #f4eff4;
     --inverseSurface: #313033;
+    --elevation1: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
+    --elevation2: "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
+    --elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)";
+    --elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)";
+    --elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)";
+    background: var(--background);
 }
 
 @tailwind components;
 
 @layer components {
-    .cy-button {
-        @apply px-5 py-[0.4rem]  cursor-pointer rounded-full transition-all duration-300  flex justify-center items-center gap-1 hover:brightness-[0.93] focus:outline-outline disabled:opacity-80 disabled:hover:filter-none disabled:hover:cursor-auto;
+    .cy-button-filled {
+        @apply font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center hover:shadow-elevation1 cursor-pointer disabled:cursor-default disabled:!text-onBackground disabled:hover:shadow-none disabled:!bg-disabled disabled:opacity-40;
     }
-    .cy-button-primary {
-        @apply bg-primary text-onPrimary active:shadow-borderPrimary border-none;
+    .cy-button-filled.cy-button-primary {
+        @apply bg-primary text-onPrimary;
     }
-    .cy-button-outline-primary {
-        @apply bg-tranparent border-primary border-2 active:shadow-borderPrimary hover:bg-primaryContainer hover:text-onPrimaryContainer active:border-[transparent] text-primary;
+    .cy-button-filled.cy-button-secondary {
+        @apply bg-secondary text-onSecondary;
     }
-    .cy-button-secondary {
-        @apply bg-secondary text-onSecondary active:shadow-borderSecondary border-none;
+    .cy-button-filled.cy-button-tertiary {
+        @apply bg-tertiary text-onTertiary;
     }
-    .cy-button-outline-secondary {
-        @apply bg-tranparent border-secondary border-2 active:shadow-borderSecondary hover:bg-secondaryContainer hover:text-onSecondaryContainer active:border-[transparent] text-secondary;
-    }
-    .cy-button-tertiary {
-        @apply bg-tertiary text-onTertiary active:shadow-borderTertiary border-none;
-    }
-    .cy-button-outline-tertiary {
-        @apply bg-tranparent border-tertiary border-2 active:shadow-borderTertiary hover:bg-tertiaryContainer hover:text-onTertiaryContainer active:border-[transparent] text-tertiary;
-    }
-    .cy-button-error {
-        @apply bg-error text-onError active:shadow-borderError border-none;
-    }
-    .cy-button-outline-error {
-        @apply bg-tranparent border-error border-2 active:shadow-borderError hover:bg-errorContainer hover:text-onErrorContainer active:border-[transparent] text-error;
-    }
-    .cy-button-md {
-        @apply text-base;
+    .cy-button-filled.cy-button-error {
+        @apply bg-error text-onError;
     }
     .cy-button-sm {
-        @apply text-xs;
+        @apply text-labelSmall px-[14px] py-[6px];
+    }
+    .cy-button-md {
+        @apply text-labelMedium px-[19px] py-[9px];
     }
     .cy-button-lg {
-        @apply text-xl;
+        @apply text-labelLarge px-[22px] py-[8px];
+    }
+    .cy-button-outline {
+        @apply border relative border-outline border-solid rounded cursor-pointer font-sans font-medium bg-background transition-all duration-150 flex gap-2 justify-center items-center z-[2] before:content-[""] before:w-[calc(100%_+_2px)] before:h-[calc(100%_+_2px)] before:z-[1] hover:before:opacity-10 before:rounded before:opacity-0 before:block before:transition-opacity before:absolute disabled:cursor-default disabled:!text-onBackground disabled:hover:before:hidden disabled:!border-disabled disabled:opacity-50;
+    }
+    .cy-button-outline.cy-button-primary {
+        @apply text-primary before:bg-primary active:border-primary;
+    }
+    .cy-button-outline.cy-button-secondary {
+        @apply text-secondary before:bg-secondary active:border-secondary;
+    }
+    .cy-button-outline.cy-button-tertiary {
+        @apply text-tertiary before:bg-tertiary active:border-tertiary;
+    }
+    .cy-button-outline.cy-button-error {
+        @apply text-error before:bg-error active:border-error;
+    }
+    .cy-button-text {
+        @apply bg-tranparent relative border-none font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center cursor-pointer z-[2] before:content-[""] before:w-[calc(100%_+_2px)] before:h-[calc(100%_+_2px)] before:z-[1] hover:before:opacity-[0.08] before:rounded before:opacity-0 before:block before:transition-opacity before:absolute active:before:opacity-[0.15] disabled:before:hidden disabled:!text-onBackground disabled:opacity-50 disabled:cursor-default;
+    }
+    .cy-button-text.cy-button-primary {
+        @apply text-primary before:bg-primary;
+    }
+    .cy-button-text.cy-button-secondary {
+        @apply text-secondary before:bg-secondary;
+    }
+    .cy-button-text.cy-button-tertiary {
+        @apply text-tertiary before:bg-tertiary;
+    }
+    .cy-button-text.cy-button-error {
+        @apply text-error before:bg-error;
     }
 }

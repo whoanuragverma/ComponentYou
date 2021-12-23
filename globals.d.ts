@@ -26,6 +26,14 @@ interface ColorPallete {
     inverseSurface: string;
 }
 
+interface Shadows {
+    elevation1: string;
+    elevation2: string;
+    elevation3: string;
+    elevation4: string;
+    elevation5: string;
+    disabled: string;
+}
 interface Theme {
     light: ColorPallete;
     dark: ColorPallete;

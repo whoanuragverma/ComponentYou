@@ -1,22 +1,12 @@
-*, ::before, ::after {
+*, ::before, ::after{
     border-color: currentColor;
     --tw-ring-offset-shadow: 0 0 #0000;
     --tw-ring-shadow: 0 0 #0000;
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
-    --tw-blur: var(--tw-empty,/*!*/ /*!*/);
-    --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
-    --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
-    --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
-    --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
-    --tw-invert: var(--tw-empty,/*!*/ /*!*/);
-    --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
-    --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
-    --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
-    --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-
-:root {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+html {
     --primary: #6750a4;
     --onPrimary: #ffffff;
     --primaryContainer: #eaddff;
@@ -42,177 +32,289 @@
     --outline: #79747e;
     --inverseOnSurface: #f4eff4;
     --inverseSurface: #313033;
+    --elevation1: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
+    --elevation2: "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
+    --elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)";
+    --elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)";
+    --elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)";
+    background: var(--background);
 }
 
-.cy-button {
+.cy-button-filled{
     display: flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
-    border-radius: 9999px;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
+    gap: 0.5rem;
+    border-radius: 100px;
+    border-width: 0px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    transition-duration: 150ms;
 }
 
-.cy-button:hover {
-    --tw-brightness: brightness(0.93);
-    filter: var(--tw-filter);
+.cy-button-filled:hover{
+    --tw-shadow: var(--elevation1);
+    --tw-shadow-colored: var(--elevation1);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.cy-button:focus {
-    outline-color: var(--outline);
+.cy-button-filled:disabled{
+    cursor: default;
+    background-color: var(--disabled) !important;
+    color: var(--onBackground) !important;
+    opacity: 0.4;
 }
 
-.cy-button:disabled {
-    opacity: 0.8;
+.cy-button-filled:hover:disabled{
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.cy-button:hover:disabled {
-    cursor: auto;
-    filter: none;
-}
-
-.cy-button-primary {
-    border-style: none;
+.cy-button-filled.cy-button-primary{
     background-color: var(--primary);
     color: var(--onPrimary);
 }
 
-.cy-button-primary:active {
-    --tw-shadow: 0 0 0 4px var(--onPrimaryContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.cy-button-outline-primary {
-    border-width: 2px;
-    border-color: var(--primary);
-    background-color: transparent;
-    color: var(--primary);
-}
-
-.cy-button-outline-primary:hover {
-    background-color: var(--primaryContainer);
-    color: var(--onPrimaryContainer);
-}
-
-.cy-button-outline-primary:active {
-    border-color: transparent;
-    --tw-shadow: 0 0 0 4px var(--onPrimaryContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.cy-button-secondary {
-    border-style: none;
+.cy-button-filled.cy-button-secondary{
     background-color: var(--secondary);
     color: var(--onSecondary);
 }
 
-.cy-button-secondary:active {
-    --tw-shadow: 0 0 0 4px var(--onSecondaryContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.cy-button-outline-secondary {
-    border-width: 2px;
-    border-color: var(--secondary);
-    background-color: transparent;
-    color: var(--secondary);
-}
-
-.cy-button-outline-secondary:hover {
-    background-color: var(--secondaryContainer);
-    color: var(--onSecondaryContainer);
-}
-
-.cy-button-outline-secondary:active {
-    border-color: transparent;
-    --tw-shadow: 0 0 0 4px var(--onSecondaryContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.cy-button-tertiary {
-    border-style: none;
+.cy-button-filled.cy-button-tertiary{
     background-color: var(--tertiary);
     color: var(--onTertiary);
 }
 
-.cy-button-tertiary:active {
-    --tw-shadow: 0 0 0 4px var(--onTertiaryContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.cy-button-outline-tertiary {
-    border-width: 2px;
-    border-color: var(--tertiary);
-    background-color: transparent;
-    color: var(--tertiary);
-}
-
-.cy-button-outline-tertiary:hover {
-    background-color: var(--tertiaryContainer);
-    color: var(--onTertiaryContainer);
-}
-
-.cy-button-outline-tertiary:active {
-    border-color: transparent;
-    --tw-shadow: 0 0 0 4px var(--onTertiaryContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.cy-button-error {
-    border-style: none;
+.cy-button-filled.cy-button-error{
     background-color: var(--error);
     color: var(--onError);
 }
 
-.cy-button-error:active {
-    --tw-shadow: 0 0 0 4px var(--onErrorContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.cy-button-sm{
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
 }
 
-.cy-button-outline-error {
-    border-width: 2px;
-    border-color: var(--error);
-    background-color: transparent;
+.cy-button-md{
+    padding-left: 19px;
+    padding-right: 19px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+}
+
+.cy-button-lg{
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+}
+
+.cy-button-outline{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--outline);
+    background-color: var(--background);
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.cy-button-outline::before{
+    position: absolute;
+    z-index: 1;
+    display: block;
+    height: calc(100% + 2px);
+    width: calc(100% + 2px);
+    border-radius: 100px;
+    opacity: 0;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    --tw-content: "";
+    content: var(--tw-content);
+}
+
+.cy-button-outline:hover::before{
+    content: var(--tw-content);
+    opacity: 0.1;
+}
+
+.cy-button-outline:disabled{
+    cursor: default;
+    border-color: var(--disabled) !important;
+    color: var(--onBackground) !important;
+    opacity: 0.5;
+}
+
+.cy-button-outline:hover:disabled::before{
+    content: var(--tw-content);
+    display: none;
+}
+
+.cy-button-outline.cy-button-primary{
+    color: var(--primary);
+}
+
+.cy-button-outline.cy-button-primary::before{
+    content: var(--tw-content);
+    background-color: var(--primary);
+}
+
+.cy-button-outline.cy-button-primary:active{
+    border-color: var(--primary);
+}
+
+.cy-button-outline.cy-button-secondary{
+    color: var(--secondary);
+}
+
+.cy-button-outline.cy-button-secondary::before{
+    content: var(--tw-content);
+    background-color: var(--secondary);
+}
+
+.cy-button-outline.cy-button-secondary:active{
+    border-color: var(--secondary);
+}
+
+.cy-button-outline.cy-button-tertiary{
+    color: var(--tertiary);
+}
+
+.cy-button-outline.cy-button-tertiary::before{
+    content: var(--tw-content);
+    background-color: var(--tertiary);
+}
+
+.cy-button-outline.cy-button-tertiary:active{
+    border-color: var(--tertiary);
+}
+
+.cy-button-outline.cy-button-error{
     color: var(--error);
 }
 
-.cy-button-outline-error:hover {
-    background-color: var(--errorContainer);
-    color: var(--onErrorContainer);
+.cy-button-outline.cy-button-error::before{
+    content: var(--tw-content);
+    background-color: var(--error);
 }
 
-.cy-button-outline-error:active {
-    border-color: transparent;
-    --tw-shadow: 0 0 0 4px var(--onErrorContainer);
-    --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.cy-button-outline.cy-button-error:active{
+    border-color: var(--error);
 }
 
-.cy-button-md {
-    font-size: 1rem;
-    line-height: 1.5rem;
+.cy-button-text{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 100px;
+    border-width: 0px;
+    border-style: none;
+    background-color: transparent;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
 }
 
-.cy-button-sm {
-    font-size: 0.75rem;
-    line-height: 1rem;
+.cy-button-text::before{
+    position: absolute;
+    z-index: 1;
+    display: block;
+    height: calc(100% + 2px);
+    width: calc(100% + 2px);
+    border-radius: 100px;
+    opacity: 0;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    --tw-content: "";
+    content: var(--tw-content);
 }
 
-.cy-button-lg {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+.cy-button-text:hover::before{
+    content: var(--tw-content);
+    opacity: 0.08;
+}
+
+.cy-button-text:active::before{
+    content: var(--tw-content);
+    opacity: 0.15;
+}
+
+.cy-button-text:disabled{
+    cursor: default;
+    color: var(--onBackground) !important;
+    opacity: 0.5;
+}
+
+.cy-button-text:disabled::before{
+    content: var(--tw-content);
+    display: none;
+}
+
+.cy-button-text.cy-button-primary{
+    color: var(--primary);
+}
+
+.cy-button-text.cy-button-primary::before{
+    content: var(--tw-content);
+    background-color: var(--primary);
+}
+
+.cy-button-text.cy-button-secondary{
+    color: var(--secondary);
+}
+
+.cy-button-text.cy-button-secondary::before{
+    content: var(--tw-content);
+    background-color: var(--secondary);
+}
+
+.cy-button-text.cy-button-tertiary{
+    color: var(--tertiary);
+}
+
+.cy-button-text.cy-button-tertiary::before{
+    content: var(--tw-content);
+    background-color: var(--tertiary);
+}
+
+.cy-button-text.cy-button-error{
+    color: var(--error);
+}
+
+.cy-button-text.cy-button-error::before{
+    content: var(--tw-content);
+    background-color: var(--error);
 }

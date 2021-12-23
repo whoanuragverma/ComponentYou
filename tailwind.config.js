@@ -28,14 +28,59 @@ module.exports = {
             inverseOnSurface: "var(--inverseOnSurface)",
             inverseSurface: "var(--inverseSurface)",
             tranparent: "transparent",
+            disabled: "var(--disabled)",
         },
-        extend: {
-            boxShadow: {
-                borderPrimary: "0 0 0 4px var(--onPrimaryContainer)",
-                borderSecondary: "0 0 0 4px var(--onSecondaryContainer)",
-                borderTertiary: "0 0 0 4px var(--onTertiaryContainer)",
-                borderError: "0 0 0 4px var(--onErrorContainer)",
-            },
+        boxShadow: {
+            elevation1: "var(--elevation1)",
+            elevation2: "var(--elevation2)",
+            elevation3: "var(--elevation3)",
+            elevation4: "var(--elevation4)",
+            elevation5: "var(--elevation5)",
+            none: "none",
+        },
+        fontSize: {
+            displayLarge: ["57px", "64px"],
+            displayMedium: ["45px", "52px"],
+            displaySmall: ["36px", "44px"],
+            headlineLarge: ["32px", "40px"],
+            headlineMedium: ["28px", "36px"],
+            headlineSmall: ["24px", "32px"],
+            titleLarge: ["22px", "28px"],
+            titleMedium: [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0.15px" },
+            ],
+            titleSmall: [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.1px" },
+            ],
+            labelLarge: [
+                "14px",
+                { letterSpacing: "0.1px", lineHeight: "20px" },
+            ],
+            labelMedium: [
+                "12px",
+                { letterSpacing: "0.5px", lineHeight: "16px" },
+            ],
+            labelSmall: [
+                "11px",
+                { letterSpacing: "0.5px", lineHeight: "16px" },
+            ],
+            bodyLarge: [
+                "16px",
+                { letterSpacing: "0.15px", lineHeight: "24px" },
+            ],
+            bodyMedium: [
+                "14px",
+                { letterSpacing: "0.25px", lineHeight: "20px" },
+            ],
+            bodySmall: ["12px", { letterSpacing: "0.4px", lineHeight: "16px" }],
+        },
+        borderRadius: {
+            DEFAULT: "100px",
+        },
+        fontFamily: {
+            sans: ["Roboto", "sans-serif"],
         },
     },
     plugins: [],

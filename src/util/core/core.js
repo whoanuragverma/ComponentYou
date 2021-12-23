@@ -3562,14 +3562,18 @@ async function __ux$material$theme_generator$src$theme$index_seedFromImage(e) {
     return __$hexFromInt(b[0]);
 }
 function __generatePalleteFromURL(e) {
-    return new Promise(async (t) => {
-        t(
-            __$theme_generator$src$theme$index$ThemeAdapter$fromColor(
+    return new Promise(async (resolve, reject) => {
+        try {
+            const t = __$theme_generator$src$theme$index$ThemeAdapter$fromColor(
                 await __ux$material$theme_generator$src$theme$index_seedFromImage(
                     e
                 )
-            )
-        );
+            );
+            resolve(t);
+        } catch (e) {
+            console.error(e);
+            reject(e);
+        }
     });
 }
 

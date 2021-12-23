@@ -3,9 +3,33 @@ import { useState, useEffect } from "react";
 
 export default function useThemeEngine() {
     const [active, setActive] = useState<Mode>("light");
-    const [URL, setURL] = useState<string>(
-        "https://source.unsplash.com/random"
-    );
+    const [URL, setURL] = useState<string>("");
+    const darkShadow: Shadows = {
+        elevation1:
+            "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+        elevation2:
+            "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)",
+        elevation3:
+            "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
+        elevation4:
+            "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
+        elevation5:
+            "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
+        disabled: "rgba(227, 227, 227, 0.40)",
+    };
+    const lightShadow: Shadows = {
+        elevation1:
+            "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
+        elevation2:
+            "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
+        elevation3:
+            "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
+        elevation4:
+            "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
+        elevation5:
+            "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
+        disabled: "rgba(31, 31, 31, 0.40)",
+    };
     const [theme, setTheme] = useState<Theme>({
         light: {
             primary: "#6750a4",
@@ -73,6 +97,11 @@ export default function useThemeEngine() {
     useEffect(() => {
         const root = document.querySelector<HTMLElement>(":root");
         Object.entries(active === "light" ? theme.light : theme.dark).forEach(
+            ([key, val]) => {
+                root?.style.setProperty(`--${key}`, val);
+            }
+        );
+        Object.entries(active === "light" ? lightShadow : darkShadow).forEach(
             ([key, val]) => {
                 root?.style.setProperty(`--${key}`, val);
             }

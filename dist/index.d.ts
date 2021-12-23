@@ -5,7 +5,7 @@ declare function useThemeEngine(): (react.Dispatch<react.SetStateAction<Mode>> |
 
 declare type ButtonSize = "sm" | "md" | "lg";
 declare type ButtonType = "primary" | "secondary" | "tertiary" | "error";
-declare type ButtonVariant = "filled" | "outlined";
+declare type ButtonVariant = "filled" | "outlined" | "text";
 interface buttonProps {
     size: ButtonSize;
     disabled?: boolean;

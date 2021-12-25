@@ -5,39 +5,11 @@
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
 }
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 html {
-    --primary: #6750a4;
-    --onPrimary: #ffffff;
-    --primaryContainer: #eaddff;
-    --onPrimaryContainer: #21005d;
-    --secondary: #625b71;
-    --onSecondary: #ffffff;
-    --secondaryContainer: #e8def8;
-    --onSecondaryContainer: #1d192b;
-    --tertiary: #7d5260;
-    --onTertiary: #ffffff;
-    --tertiaryContainer: #ffd8e4;
-    --onTertiaryContainer: #31111d;
-    --error: #b3261e;
-    --errorContainer: #f9dedc;
-    --onError: #ffffff;
-    --onErrorContainer: #410e0b;
-    --background: #fffbfe;
-    --onBackground: #1c1b1f;
-    --surface: #fffbfe;
-    --onSurface: #1c1b1f;
-    --surfaceVariant: #e7e0ec;
-    --onSurfaceVariant: #49454f;
-    --outline: #79747e;
-    --inverseOnSurface: #f4eff4;
-    --inverseSurface: #313033;
-    --elevation1: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
-    --elevation2: "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
-    --elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)";
-    --elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)";
-    --elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)";
-    background: var(--background);
+    background: rgb(var(--background));
+    color: rgb(var(--onBackground));
+    margin: 2rem;
 }
 
 .cy-button-filled{
@@ -63,9 +35,10 @@ html {
 
 .cy-button-filled:disabled{
     cursor: default;
-    background-color: var(--disabled) !important;
-    color: var(--onBackground) !important;
-    opacity: 0.4;
+    background-color: rgba(var(--disabled), 0.2) !important;
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--onBackground), var(--tw-text-opacity)) !important;
+    opacity: 0.6;
 }
 
 .cy-button-filled:hover:disabled{
@@ -75,28 +48,36 @@ html {
 }
 
 .cy-button-filled.cy-button-primary{
-    background-color: var(--primary);
-    color: var(--onPrimary);
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--primary), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onPrimary), var(--tw-text-opacity));
 }
 
 .cy-button-filled.cy-button-secondary{
-    background-color: var(--secondary);
-    color: var(--onSecondary);
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--secondary), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onSecondary), var(--tw-text-opacity));
 }
 
 .cy-button-filled.cy-button-tertiary{
-    background-color: var(--tertiary);
-    color: var(--onTertiary);
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--tertiary), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onTertiary), var(--tw-text-opacity));
 }
 
 .cy-button-filled.cy-button-error{
-    background-color: var(--error);
-    color: var(--onError);
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--error), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onError), var(--tw-text-opacity));
 }
 
 .cy-button-sm{
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 6px;
     padding-bottom: 6px;
     font-size: 11px;
@@ -105,38 +86,39 @@ html {
 }
 
 .cy-button-md{
-    padding-left: 19px;
-    padding-right: 19px;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.5px;
 }
 
 .cy-button-lg{
-    padding-left: 22px;
-    padding-right: 22px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    font-size: 14px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1px;
 }
 
 .cy-button-outline{
     position: relative;
-    z-index: 2;
     display: flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     border-radius: 100px;
-    border-width: 1px;
+    border-width: 1.5px;
     border-style: solid;
-    border-color: var(--outline);
-    background-color: var(--background);
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--outline), var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--background), var(--tw-bg-opacity));
     font-family: Roboto, sans-serif;
     font-weight: 500;
     transition-property: all;
@@ -144,93 +126,77 @@ html {
     transition-duration: 150ms;
 }
 
-.cy-button-outline::before{
-    position: absolute;
-    z-index: 1;
-    display: block;
-    height: calc(100% + 2px);
-    width: calc(100% + 2px);
-    border-radius: 100px;
-    opacity: 0;
-    transition-property: opacity;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-    --tw-content: "";
-    content: var(--tw-content);
-}
-
-.cy-button-outline:hover::before{
-    content: var(--tw-content);
-    opacity: 0.1;
-}
-
 .cy-button-outline:disabled{
     cursor: default;
-    border-color: var(--disabled) !important;
-    color: var(--onBackground) !important;
+    --tw-border-opacity: 1 !important;
+    border-color: rgba(var(--disabled), var(--tw-border-opacity)) !important;
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--onBackground), var(--tw-text-opacity)) !important;
     opacity: 0.5;
 }
 
-.cy-button-outline:hover:disabled::before{
-    content: var(--tw-content);
-    display: none;
+.cy-button-outline:hover:disabled{
+    background-color: transparent !important;
 }
 
 .cy-button-outline.cy-button-primary{
-    color: var(--primary);
+    --tw-text-opacity: 1;
+    color: rgba(var(--primary), var(--tw-text-opacity));
 }
 
-.cy-button-outline.cy-button-primary::before{
-    content: var(--tw-content);
-    background-color: var(--primary);
+.cy-button-outline.cy-button-primary:hover{
+    background-color: rgba(var(--primary), 0.1);
 }
 
 .cy-button-outline.cy-button-primary:active{
-    border-color: var(--primary);
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--primary), var(--tw-border-opacity));
 }
 
 .cy-button-outline.cy-button-secondary{
-    color: var(--secondary);
+    --tw-text-opacity: 1;
+    color: rgba(var(--secondary), var(--tw-text-opacity));
 }
 
-.cy-button-outline.cy-button-secondary::before{
-    content: var(--tw-content);
-    background-color: var(--secondary);
+.cy-button-outline.cy-button-secondary:hover{
+    background-color: rgba(var(--secondary), 0.1);
 }
 
 .cy-button-outline.cy-button-secondary:active{
-    border-color: var(--secondary);
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--secondary), var(--tw-border-opacity));
 }
 
 .cy-button-outline.cy-button-tertiary{
-    color: var(--tertiary);
+    --tw-text-opacity: 1;
+    color: rgba(var(--tertiary), var(--tw-text-opacity));
 }
 
-.cy-button-outline.cy-button-tertiary::before{
-    content: var(--tw-content);
-    background-color: var(--tertiary);
+.cy-button-outline.cy-button-tertiary:hover{
+    background-color: rgba(var(--tertiary), 0.1);
 }
 
 .cy-button-outline.cy-button-tertiary:active{
-    border-color: var(--tertiary);
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--tertiary), var(--tw-border-opacity));
 }
 
 .cy-button-outline.cy-button-error{
-    color: var(--error);
+    --tw-text-opacity: 1;
+    color: rgba(var(--error), var(--tw-text-opacity));
 }
 
-.cy-button-outline.cy-button-error::before{
-    content: var(--tw-content);
-    background-color: var(--error);
+.cy-button-outline.cy-button-error:hover{
+    background-color: rgba(var(--error), 0.1);
 }
 
 .cy-button-outline.cy-button-error:active{
-    border-color: var(--error);
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--error), var(--tw-border-opacity));
 }
 
 .cy-button-text{
     position: relative;
-    z-index: 2;
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -247,74 +213,169 @@ html {
     transition-duration: 150ms;
 }
 
-.cy-button-text::before{
-    position: absolute;
-    z-index: 1;
-    display: block;
-    height: calc(100% + 2px);
-    width: calc(100% + 2px);
-    border-radius: 100px;
-    opacity: 0;
-    transition-property: opacity;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-    --tw-content: "";
-    content: var(--tw-content);
-}
-
-.cy-button-text:hover::before{
-    content: var(--tw-content);
-    opacity: 0.08;
-}
-
-.cy-button-text:active::before{
-    content: var(--tw-content);
-    opacity: 0.15;
-}
-
 .cy-button-text:disabled{
     cursor: default;
-    color: var(--onBackground) !important;
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--onBackground), var(--tw-text-opacity)) !important;
     opacity: 0.5;
 }
 
-.cy-button-text:disabled::before{
-    content: var(--tw-content);
-    display: none;
+.cy-button-text:hover:disabled{
+    background-color: transparent !important;
 }
 
 .cy-button-text.cy-button-primary{
-    color: var(--primary);
+    --tw-text-opacity: 1;
+    color: rgba(var(--primary), var(--tw-text-opacity));
 }
 
-.cy-button-text.cy-button-primary::before{
-    content: var(--tw-content);
-    background-color: var(--primary);
+.cy-button-text.cy-button-primary:hover{
+    background-color: rgba(var(--primary), 0.08);
+}
+
+.cy-button-text.cy-button-primary:active{
+    background-color: rgba(var(--primary), 0.15);
 }
 
 .cy-button-text.cy-button-secondary{
-    color: var(--secondary);
+    --tw-text-opacity: 1;
+    color: rgba(var(--secondary), var(--tw-text-opacity));
 }
 
-.cy-button-text.cy-button-secondary::before{
-    content: var(--tw-content);
-    background-color: var(--secondary);
+.cy-button-text.cy-button-secondary:hover{
+    background-color: rgba(var(--secondary), 0.08);
+}
+
+.cy-button-text.cy-button-secondary:active{
+    background-color: rgba(var(--secondary), 0.15);
 }
 
 .cy-button-text.cy-button-tertiary{
-    color: var(--tertiary);
+    --tw-text-opacity: 1;
+    color: rgba(var(--tertiary), var(--tw-text-opacity));
 }
 
-.cy-button-text.cy-button-tertiary::before{
-    content: var(--tw-content);
-    background-color: var(--tertiary);
+.cy-button-text.cy-button-tertiary:hover{
+    background-color: rgba(var(--tertiary), 0.08);
+}
+
+.cy-button-text.cy-button-tertiary:active{
+    background-color: rgba(var(--tertiary), 0.15);
 }
 
 .cy-button-text.cy-button-error{
-    color: var(--error);
+    --tw-text-opacity: 1;
+    color: rgba(var(--error), var(--tw-text-opacity));
 }
 
-.cy-button-text.cy-button-error::before{
-    content: var(--tw-content);
-    background-color: var(--error);
+.cy-button-text.cy-button-error:hover{
+    background-color: rgba(var(--error), 0.08);
+}
+
+.cy-button-text.cy-button-error:active{
+    background-color: rgba(var(--error), 0.15);
+}
+
+.cy-card{
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    border-radius: 12px;
+    font-family: Roboto, sans-serif;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.cy-card-outlined{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--background), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onBackground), var(--tw-text-opacity));
+    --tw-shadow: 0 0 0 1.5px rgb(var(--outline));
+    --tw-shadow-colored: 0 0 0 1.5px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-card-filled{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--primaryContainer), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onPrimaryContainer), var(--tw-text-opacity));
+    --tw-shadow: var(--elevation1);
+    --tw-shadow-colored: var(--elevation1);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cy-card-image > img{
+    display: block;
+    vertical-align: middle;
+}
+
+.cy-card-image .rounded-all{
+    border-radius: 12px;
+}
+
+.cy-card-image .rounded-top{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.cy-card-image .rounded-bottom{
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.cy-card-image .rounded-left{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.cy-card-image .rounded-right{
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.cy-card-header{
+    display: block;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.cy-card-title{
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.cy-card-subtitle{
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    font-weight: 300;
+}
+
+.cy-card-body{
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.25rem;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+}
+
+.cy-card-action{
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.5rem;
+}
+
+.cy-card-landscape.cy-card{
+    display: flex;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
 }

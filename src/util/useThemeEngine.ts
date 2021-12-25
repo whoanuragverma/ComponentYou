@@ -15,7 +15,7 @@ export default function useThemeEngine() {
             "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
         elevation5:
             "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
-        disabled: "rgba(227, 227, 227, 0.40)",
+        disabled: "227, 227, 227",
     };
     const lightShadow: Shadows = {
         elevation1:
@@ -28,7 +28,7 @@ export default function useThemeEngine() {
             "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
         elevation5:
             "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
-        disabled: "rgba(31, 31, 31, 0.40)",
+        disabled: "31, 31, 31",
     };
     const [theme, setTheme] = useState<Theme>({
         light: {
@@ -94,11 +94,20 @@ export default function useThemeEngine() {
 
         changeTheTheme();
     }, [URL]);
+    function hexToRgb(hex: string) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result != null
+            ? `${parseInt(result[1], 16)}, ${parseInt(
+                  result[2],
+                  16
+              )}, ${parseInt(result[3], 16)}`
+            : "0, 0, 0";
+    }
     useEffect(() => {
         const root = document.querySelector<HTMLElement>(":root");
         Object.entries(active === "light" ? theme.light : theme.dark).forEach(
             ([key, val]) => {
-                root?.style.setProperty(`--${key}`, val);
+                root?.style.setProperty(`--${key}`, hexToRgb(val));
             }
         );
         Object.entries(active === "light" ? lightShadow : darkShadow).forEach(

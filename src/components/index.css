@@ -1,43 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 html {
-    --primary: #6750a4;
-    --onPrimary: #ffffff;
-    --primaryContainer: #eaddff;
-    --onPrimaryContainer: #21005d;
-    --secondary: #625b71;
-    --onSecondary: #ffffff;
-    --secondaryContainer: #e8def8;
-    --onSecondaryContainer: #1d192b;
-    --tertiary: #7d5260;
-    --onTertiary: #ffffff;
-    --tertiaryContainer: #ffd8e4;
-    --onTertiaryContainer: #31111d;
-    --error: #b3261e;
-    --errorContainer: #f9dedc;
-    --onError: #ffffff;
-    --onErrorContainer: #410e0b;
-    --background: #fffbfe;
-    --onBackground: #1c1b1f;
-    --surface: #fffbfe;
-    --onSurface: #1c1b1f;
-    --surfaceVariant: #e7e0ec;
-    --onSurfaceVariant: #49454f;
-    --outline: #79747e;
-    --inverseOnSurface: #f4eff4;
-    --inverseSurface: #313033;
-    --elevation1: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
-    --elevation2: "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)";
-    --elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)";
-    --elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)";
-    --elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)";
-    background: var(--background);
+    background: rgb(var(--background));
+    color: rgb(var(--onBackground));
+    margin: 2rem;
 }
 
 @tailwind components;
 
 @layer components {
     .cy-button-filled {
-        @apply font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center hover:shadow-elevation1 cursor-pointer disabled:cursor-default disabled:!text-onBackground disabled:hover:shadow-none disabled:!bg-disabled disabled:opacity-40;
+        @apply font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center hover:shadow-elevation1 cursor-pointer disabled:cursor-default disabled:!text-onBackground disabled:hover:shadow-none disabled:!bg-disabled/20 disabled:opacity-60;
     }
     .cy-button-filled.cy-button-primary {
         @apply bg-primary text-onPrimary;
@@ -52,42 +24,87 @@ html {
         @apply bg-error text-onError;
     }
     .cy-button-sm {
-        @apply text-labelSmall px-[14px] py-[6px];
+        @apply text-labelSmall px-[10px] py-[6px];
     }
     .cy-button-md {
-        @apply text-labelMedium px-[19px] py-[9px];
+        @apply text-labelMedium px-[15px] py-[8px];
     }
     .cy-button-lg {
-        @apply text-labelLarge px-[22px] py-[8px];
+        @apply text-labelLarge px-[25px] py-[10px];
     }
     .cy-button-outline {
-        @apply border relative border-outline border-solid rounded cursor-pointer font-sans font-medium bg-background transition-all duration-150 flex gap-2 justify-center items-center z-[2] before:content-[""] before:w-[calc(100%_+_2px)] before:h-[calc(100%_+_2px)] before:z-[1] hover:before:opacity-10 before:rounded before:opacity-0 before:block before:transition-opacity before:absolute disabled:cursor-default disabled:!text-onBackground disabled:hover:before:hidden disabled:!border-disabled disabled:opacity-50;
+        @apply border-[1.5px] relative border-outline border-solid rounded cursor-pointer font-sans font-medium bg-background transition-all duration-150 flex gap-2 justify-center items-center disabled:cursor-default disabled:!text-onBackground disabled:!border-disabled disabled:opacity-50 disabled:hover:!bg-tranparent;
     }
     .cy-button-outline.cy-button-primary {
-        @apply text-primary before:bg-primary active:border-primary;
+        @apply text-primary hover:bg-primary/10 active:border-primary;
     }
     .cy-button-outline.cy-button-secondary {
-        @apply text-secondary before:bg-secondary active:border-secondary;
+        @apply text-secondary hover:bg-secondary/10 active:border-secondary;
     }
     .cy-button-outline.cy-button-tertiary {
-        @apply text-tertiary before:bg-tertiary active:border-tertiary;
+        @apply text-tertiary hover:bg-tertiary/10 active:border-tertiary;
     }
     .cy-button-outline.cy-button-error {
-        @apply text-error before:bg-error active:border-error;
+        @apply text-error hover:bg-error/10 active:border-error;
     }
     .cy-button-text {
-        @apply bg-tranparent relative border-none font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center cursor-pointer z-[2] before:content-[""] before:w-[calc(100%_+_2px)] before:h-[calc(100%_+_2px)] before:z-[1] hover:before:opacity-[0.08] before:rounded before:opacity-0 before:block before:transition-opacity before:absolute active:before:opacity-[0.15] disabled:before:hidden disabled:!text-onBackground disabled:opacity-50 disabled:cursor-default;
+        @apply bg-tranparent relative border-none font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center cursor-pointer disabled:!text-onBackground disabled:opacity-50 disabled:cursor-default disabled:hover:!bg-tranparent;
     }
     .cy-button-text.cy-button-primary {
-        @apply text-primary before:bg-primary;
+        @apply text-primary hover:bg-primary/[0.08] active:bg-primary/[0.15];
     }
     .cy-button-text.cy-button-secondary {
-        @apply text-secondary before:bg-secondary;
+        @apply text-secondary hover:bg-secondary/[0.08] active:bg-secondary/[0.15];
     }
     .cy-button-text.cy-button-tertiary {
-        @apply text-tertiary before:bg-tertiary;
+        @apply text-tertiary hover:bg-tertiary/[0.08] active:bg-tertiary/[0.15];
     }
     .cy-button-text.cy-button-error {
-        @apply text-error before:bg-error;
+        @apply text-error hover:bg-error/[0.08] active:bg-error/[0.15];
+    }
+    .cy-card {
+        @apply w-min rounded-[12px] transition-all duration-150  font-sans;
+    }
+    .cy-card-outlined {
+        @apply shadow-[0_0_0_1.5px_rgb(var(--outline))] text-onBackground bg-background;
+    }
+    .cy-card-filled {
+        @apply shadow-elevation1 bg-primaryContainer text-onPrimaryContainer;
+    }
+    .cy-card-image > img {
+        @apply block align-middle;
+    }
+    .cy-card-image .rounded-all {
+        @apply rounded-[12px];
+    }
+    .cy-card-image .rounded-top {
+        @apply rounded-t-[12px];
+    }
+    .cy-card-image .rounded-bottom {
+        @apply rounded-b-[12px];
+    }
+    .cy-card-image .rounded-left {
+        @apply rounded-l-[12px];
+    }
+    .cy-card-image .rounded-right {
+        @apply rounded-r-[12px];
+    }
+    .cy-card-header {
+        @apply px-3 pt-2 block;
+    }
+    .cy-card-title {
+        @apply text-headlineSmall font-medium block;
+    }
+    .cy-card-subtitle {
+        @apply text-titleMedium block font-light;
+    }
+    .cy-card-body {
+        @apply px-3 pb-1 text-bodyMedium;
+    }
+    .cy-card-action {
+        @apply pb-2 px-3;
+    }
+    .cy-card-landscape.cy-card {
+        @apply flex min-w-max;
     }
 }

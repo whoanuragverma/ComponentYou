@@ -3441,7 +3441,7 @@ function useThemeEngine() {
         elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
         elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
         elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
-        disabled: "rgba(227, 227, 227, 0.40)",
+        disabled: "227, 227, 227",
     };
     var lightShadow = {
         elevation1: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
@@ -3449,7 +3449,7 @@ function useThemeEngine() {
         elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
         elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
         elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
-        disabled: "rgba(31, 31, 31, 0.40)",
+        disabled: "31, 31, 31",
     };
     var _c = react.useState({
         light: {
@@ -3524,11 +3524,17 @@ function useThemeEngine() {
         }
         changeTheTheme();
     }, [URL]);
+    function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result != null
+            ? "".concat(parseInt(result[1], 16), ", ").concat(parseInt(result[2], 16), ", ").concat(parseInt(result[3], 16))
+            : "0, 0, 0";
+    }
     react.useEffect(function () {
         var root = document.querySelector(":root");
         Object.entries(active === "light" ? theme.light : theme.dark).forEach(function (_a) {
             var key = _a[0], val = _a[1];
-            root === null || root === void 0 ? void 0 : root.style.setProperty("--".concat(key), val);
+            root === null || root === void 0 ? void 0 : root.style.setProperty("--".concat(key), hexToRgb(val));
         });
         Object.entries(active === "light" ? lightShadow : darkShadow).forEach(function (_a) {
             var key = _a[0], val = _a[1];
@@ -3557,6 +3563,36 @@ function Button(_a) {
                     : "cy-button-error") }, rest, { children: children }), void 0));
 }
 
+var Card = function (_a) {
+    var _b = _a.type, type = _b === void 0 ? "outlined" : _b, orientation = _a.orientation, children = _a.children;
+    return (jsxRuntime.jsx("div", __assign({ className: "cy-card ".concat(type === "filled" ? "cy-card-filled" : "cy-card-outlined", " ").concat(orientation === "landscape" && "cy-card-landscape") }, { children: children }), void 0));
+};
+Card.Image = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("div", __assign({ className: "cy-card-image" }, { children: children }), void 0));
+};
+Card.Header = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("div", __assign({ className: "cy-card-header" }, { children: children }), void 0));
+};
+Card.Title = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("div", __assign({ className: "cy-card-title" }, { children: children }), void 0));
+};
+Card.SubTitle = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("div", __assign({ className: "cy-card-subtitle" }, { children: children }), void 0));
+};
+Card.Body = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("div", __assign({ className: "cy-card-body" }, { children: children }), void 0));
+};
+Card.Action = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("div", __assign({ className: "cy-card-action" }, { children: children }), void 0));
+};
+
 exports.Button = Button;
+exports.Card = Card;
 exports.useThemeEngine = useThemeEngine;
 //# sourceMappingURL=index.js.map

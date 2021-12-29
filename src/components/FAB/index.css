@@ -1,0 +1,32 @@
+@layer components {
+    .cy-fab {
+        @apply border-none shadow-elevation3 hover:shadow-elevation4 transition-all relative;
+    }
+    .cy-fab-md {
+        @apply w-[56px] h-[56px] rounded-[16px];
+    }
+    .cy-fab-md svg {
+        @apply w-[24px] h-[24px];
+    }
+    .cy-fab-md .cy-padding-layer {
+        @apply p-[16px];
+    }
+    .cy-fab-sm {
+        @apply w-[40px] h-[40px] rounded-[12px];
+    }
+    .cy-fab-sm svg {
+        @apply w-[20px] h-[20px];
+    }
+    .cy-fab-sm .cy-padding-layer {
+        @apply p-[10px];
+    }
+    .cy-fab-lg {
+        @apply w-[72px] h-[72px] rounded-[20px];
+    }
+    .cy-fab-lg svg {
+        @apply w-[36px] h-[36px];
+    }
+    .cy-fab-lg .cy-padding-layer {
+        @apply p-[17px];
+    }
+}

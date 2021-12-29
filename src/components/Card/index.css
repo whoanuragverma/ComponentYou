@@ -1,0 +1,47 @@
+@layer utilities {
+    .cy-card {
+        @apply w-min rounded-[12px] transition-all duration-150  font-sans;
+    }
+    .cy-card-outlined {
+        @apply shadow-[0_0_0_1.5px_rgb(var(--outline))] text-onBackground bg-background;
+    }
+    .cy-card-filled {
+        @apply shadow-elevation1 bg-primaryContainer text-onPrimaryContainer;
+    }
+    .cy-card-image > img {
+        @apply block align-middle;
+    }
+    .cy-card-image .rounded-all {
+        @apply rounded-[12px];
+    }
+    .cy-card-image .rounded-top {
+        @apply rounded-t-[12px];
+    }
+    .cy-card-image .rounded-bottom {
+        @apply rounded-b-[12px];
+    }
+    .cy-card-image .rounded-left {
+        @apply rounded-l-[12px];
+    }
+    .cy-card-image .rounded-right {
+        @apply rounded-r-[12px];
+    }
+    .cy-card-header {
+        @apply px-3 pt-2 block;
+    }
+    .cy-card-title {
+        @apply text-headlineSmall font-medium block;
+    }
+    .cy-card-subtitle {
+        @apply text-titleMedium block font-light;
+    }
+    .cy-card-body {
+        @apply px-3 pb-1 text-bodyMedium;
+    }
+    .cy-card-action {
+        @apply pb-2 px-3;
+    }
+    .cy-card-landscape.cy-card {
+        @apply flex min-w-max;
+    }
+}

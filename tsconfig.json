@@ -6,6 +6,7 @@
         "strict": true,
         "skipLibCheck": true,
         "jsx": "react-jsx",
+        "removeComments": false,
         "module": "ESNext",
         "declaration": true,
         "declarationDir": "types",

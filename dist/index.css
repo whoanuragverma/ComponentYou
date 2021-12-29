@@ -1,4 +1,12 @@
 *, ::before, ::after{
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     border-color: currentColor;
     --tw-ring-offset-shadow: 0 0 #0000;
     --tw-ring-shadow: 0 0 #0000;
@@ -11,7 +19,57 @@ html {
     color: rgb(var(--onBackground));
     margin: 2rem;
 }
-
+.cy-fab{
+    position: relative;
+    border-style: none;
+    --tw-shadow: var(--elevation3);
+    --tw-shadow-colored: var(--elevation3);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+.cy-fab:hover{
+    --tw-shadow: var(--elevation4);
+    --tw-shadow-colored: var(--elevation4);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.cy-fab-md{
+    height: 56px;
+    width: 56px;
+    border-radius: 16px;
+}
+.cy-fab-md svg{
+    height: 24px;
+    width: 24px;
+}
+.cy-fab-md .cy-padding-layer{
+    padding: 16px;
+}
+.cy-fab-sm{
+    height: 40px;
+    width: 40px;
+    border-radius: 12px;
+}
+.cy-fab-sm svg{
+    height: 20px;
+    width: 20px;
+}
+.cy-fab-sm .cy-padding-layer{
+    padding: 10px;
+}
+.cy-fab-lg{
+    height: 72px;
+    width: 72px;
+    border-radius: 20px;
+}
+.cy-fab-lg svg{
+    height: 36px;
+    width: 36px;
+}
+.cy-fab-lg .cy-padding-layer{
+    padding: 17px;
+}
 .cy-button-filled{
     display: flex;
     cursor: pointer;
@@ -26,13 +84,11 @@ html {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
-
 .cy-button-filled:hover{
     --tw-shadow: var(--elevation1);
     --tw-shadow-colored: var(--elevation1);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 .cy-button-filled:disabled{
     cursor: default;
     background-color: rgba(var(--disabled), 0.2) !important;
@@ -40,41 +96,35 @@ html {
     color: rgba(var(--onBackground), var(--tw-text-opacity)) !important;
     opacity: 0.6;
 }
-
 .cy-button-filled:hover:disabled{
     --tw-shadow: 0 0 #0000;
     --tw-shadow-colored: 0 0 #0000;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 .cy-button-filled.cy-button-primary{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--primary), var(--tw-bg-opacity));
     --tw-text-opacity: 1;
     color: rgba(var(--onPrimary), var(--tw-text-opacity));
 }
-
 .cy-button-filled.cy-button-secondary{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--secondary), var(--tw-bg-opacity));
     --tw-text-opacity: 1;
     color: rgba(var(--onSecondary), var(--tw-text-opacity));
 }
-
 .cy-button-filled.cy-button-tertiary{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--tertiary), var(--tw-bg-opacity));
     --tw-text-opacity: 1;
     color: rgba(var(--onTertiary), var(--tw-text-opacity));
 }
-
 .cy-button-filled.cy-button-error{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--error), var(--tw-bg-opacity));
     --tw-text-opacity: 1;
     color: rgba(var(--onError), var(--tw-text-opacity));
 }
-
 .cy-button-sm{
     padding-left: 10px;
     padding-right: 10px;
@@ -84,7 +134,6 @@ html {
     line-height: 16px;
     letter-spacing: 0.5px;
 }
-
 .cy-button-md{
     padding-left: 15px;
     padding-right: 15px;
@@ -94,7 +143,6 @@ html {
     line-height: 16px;
     letter-spacing: 0.5px;
 }
-
 .cy-button-lg{
     padding-left: 25px;
     padding-right: 25px;
@@ -104,7 +152,6 @@ html {
     line-height: 20px;
     letter-spacing: 0.1px;
 }
-
 .cy-button-outline{
     position: relative;
     display: flex;
@@ -125,7 +172,6 @@ html {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
-
 .cy-button-outline:disabled{
     cursor: default;
     --tw-border-opacity: 1 !important;
@@ -134,67 +180,53 @@ html {
     color: rgba(var(--onBackground), var(--tw-text-opacity)) !important;
     opacity: 0.5;
 }
-
 .cy-button-outline:hover:disabled{
     background-color: transparent !important;
 }
-
 .cy-button-outline.cy-button-primary{
     --tw-text-opacity: 1;
     color: rgba(var(--primary), var(--tw-text-opacity));
 }
-
 .cy-button-outline.cy-button-primary:hover{
     background-color: rgba(var(--primary), 0.1);
 }
-
 .cy-button-outline.cy-button-primary:active{
     --tw-border-opacity: 1;
     border-color: rgba(var(--primary), var(--tw-border-opacity));
 }
-
 .cy-button-outline.cy-button-secondary{
     --tw-text-opacity: 1;
     color: rgba(var(--secondary), var(--tw-text-opacity));
 }
-
 .cy-button-outline.cy-button-secondary:hover{
     background-color: rgba(var(--secondary), 0.1);
 }
-
 .cy-button-outline.cy-button-secondary:active{
     --tw-border-opacity: 1;
     border-color: rgba(var(--secondary), var(--tw-border-opacity));
 }
-
 .cy-button-outline.cy-button-tertiary{
     --tw-text-opacity: 1;
     color: rgba(var(--tertiary), var(--tw-text-opacity));
 }
-
 .cy-button-outline.cy-button-tertiary:hover{
     background-color: rgba(var(--tertiary), 0.1);
 }
-
 .cy-button-outline.cy-button-tertiary:active{
     --tw-border-opacity: 1;
     border-color: rgba(var(--tertiary), var(--tw-border-opacity));
 }
-
 .cy-button-outline.cy-button-error{
     --tw-text-opacity: 1;
     color: rgba(var(--error), var(--tw-text-opacity));
 }
-
 .cy-button-outline.cy-button-error:hover{
     background-color: rgba(var(--error), 0.1);
 }
-
 .cy-button-outline.cy-button-error:active{
     --tw-border-opacity: 1;
     border-color: rgba(var(--error), var(--tw-border-opacity));
 }
-
 .cy-button-text{
     position: relative;
     display: flex;
@@ -212,70 +244,58 @@ html {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
-
 .cy-button-text:disabled{
     cursor: default;
     --tw-text-opacity: 1 !important;
     color: rgba(var(--onBackground), var(--tw-text-opacity)) !important;
     opacity: 0.5;
 }
-
 .cy-button-text:hover:disabled{
     background-color: transparent !important;
 }
-
 .cy-button-text.cy-button-primary{
     --tw-text-opacity: 1;
     color: rgba(var(--primary), var(--tw-text-opacity));
 }
-
 .cy-button-text.cy-button-primary:hover{
     background-color: rgba(var(--primary), 0.08);
 }
-
 .cy-button-text.cy-button-primary:active{
     background-color: rgba(var(--primary), 0.15);
 }
-
 .cy-button-text.cy-button-secondary{
     --tw-text-opacity: 1;
     color: rgba(var(--secondary), var(--tw-text-opacity));
 }
-
 .cy-button-text.cy-button-secondary:hover{
     background-color: rgba(var(--secondary), 0.08);
 }
-
 .cy-button-text.cy-button-secondary:active{
     background-color: rgba(var(--secondary), 0.15);
 }
-
 .cy-button-text.cy-button-tertiary{
     --tw-text-opacity: 1;
     color: rgba(var(--tertiary), var(--tw-text-opacity));
 }
-
 .cy-button-text.cy-button-tertiary:hover{
     background-color: rgba(var(--tertiary), 0.08);
 }
-
 .cy-button-text.cy-button-tertiary:active{
     background-color: rgba(var(--tertiary), 0.15);
 }
-
 .cy-button-text.cy-button-error{
     --tw-text-opacity: 1;
     color: rgba(var(--error), var(--tw-text-opacity));
 }
-
 .cy-button-text.cy-button-error:hover{
     background-color: rgba(var(--error), 0.08);
 }
-
 .cy-button-text.cy-button-error:active{
     background-color: rgba(var(--error), 0.15);
 }
-
+.outline{
+    outline-style: solid;
+}
 .cy-card{
     width: -webkit-min-content;
     width: -moz-min-content;
@@ -286,7 +306,6 @@ html {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
-
 .cy-card-outlined{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--background), var(--tw-bg-opacity));
@@ -296,7 +315,6 @@ html {
     --tw-shadow-colored: 0 0 0 1.5px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 .cy-card-filled{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--primaryContainer), var(--tw-bg-opacity));
@@ -306,50 +324,41 @@ html {
     --tw-shadow-colored: var(--elevation1);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 .cy-card-image > img{
     display: block;
     vertical-align: middle;
 }
-
 .cy-card-image .rounded-all{
     border-radius: 12px;
 }
-
 .cy-card-image .rounded-top{
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
-
 .cy-card-image .rounded-bottom{
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
 }
-
 .cy-card-image .rounded-left{
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
-
 .cy-card-image .rounded-right{
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
 }
-
 .cy-card-header{
     display: block;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     padding-top: 0.5rem;
 }
-
 .cy-card-title{
     display: block;
     font-size: 24px;
     line-height: 32px;
     font-weight: 500;
 }
-
 .cy-card-subtitle{
     display: block;
     font-size: 16px;
@@ -357,7 +366,6 @@ html {
     letter-spacing: 0.15px;
     font-weight: 300;
 }
-
 .cy-card-body{
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -366,16 +374,156 @@ html {
     line-height: 20px;
     letter-spacing: 0.25px;
 }
-
 .cy-card-action{
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     padding-bottom: 0.5rem;
 }
-
 .cy-card-landscape.cy-card{
     display: flex;
     min-width: -webkit-max-content;
     min-width: -moz-max-content;
     min-width: max-content;
+}
+* {
+        -webkit-tap-highlight-color: transparent;
+    }
+.cy-state-layer{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+.cy-state-layer:hover{
+    cursor: pointer;
+}
+@-webkit-keyframes rippleDrop{
+    0%{
+        content: var(--tw-content);
+        width: 0%;
+        opacity: 0;
+        height: 0%;
+    }
+    100%{
+        content: var(--tw-content);
+        width: 100%;
+        opacity: 1;
+        height: 100%;
+    }
+}
+@keyframes rippleDrop{
+    0%{
+        content: var(--tw-content);
+        width: 0%;
+        opacity: 0;
+        height: 0%;
+    }
+    100%{
+        content: var(--tw-content);
+        width: 100%;
+        opacity: 1;
+        height: 100%;
+    }
+}
+.cy-state-layer:active::after{
+    content: var(--tw-content);
+    -webkit-animation: rippleDrop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: rippleDrop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cy-state-layer::after{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 0px;
+    width: 0px;
+    transform: var(--tw-transform);
+    border-radius: inherit;
+    --tw-content: "";
+    content: var(--tw-content);
+}
+.cy-padding-layer{
+    display: block;
+}
+.cy-bg-primary{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--primaryContainer), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onPrimaryContainer), var(--tw-text-opacity));
+}
+.cy-bg-primary .cy-state-layer{
+    background-color: rgba(var(--onPrimaryContainer), 0);
+}
+.cy-bg-primary .cy-state-layer:focus-within{
+    background-color: rgba(var(--onPrimaryContainer), 0.12);
+}
+.cy-bg-primary .cy-state-layer:hover{
+    background-color: rgba(var(--onPrimaryContainer), 0.08);
+}
+.cy-bg-primary .cy-state-layer:focus{
+    background-color: rgba(var(--onPrimaryContainer), 0.12);
+}
+.cy-bg-primary .cy-state-layer:focus-visible{
+    background-color: rgba(var(--onPrimaryContainer), 0.12);
+}
+.cy-bg-primary .cy-state-layer:active::after{
+    content: var(--tw-content);
+    background-color: rgba(var(--onPrimaryContainer), 0.12);
+}
+.cy-bg-secondary{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--secondaryContainer), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onSecondaryContainer), var(--tw-text-opacity));
+}
+.cy-bg-secondary .cy-state-layer{
+    background-color: rgba(var(--onSecondaryContainer), 0);
+}
+.cy-bg-secondary .cy-state-layer:focus-within{
+    background-color: rgba(var(--onSecondaryContainer), 0.12);
+}
+.cy-bg-secondary .cy-state-layer:hover{
+    background-color: rgba(var(--onSecondaryContainer), 0.08);
+}
+.cy-bg-secondary .cy-state-layer:focus{
+    background-color: rgba(var(--onSecondaryContainer), 0.12);
+}
+.cy-bg-secondary .cy-state-layer:focus-visible{
+    background-color: rgba(var(--onSecondaryContainer), 0.12);
+}
+.cy-bg-secondary .cy-state-layer:active::after{
+    content: var(--tw-content);
+    background-color: rgba(var(--onSecondaryContainer), 0.12);
+}
+.cy-bg-tertiary{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--tertiaryContainer), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onTertiaryContainer), var(--tw-text-opacity));
+}
+.cy-bg-tertiary .cy-state-layer{
+    background-color: rgba(var(--onTertiaryContainer), 0);
+}
+.cy-bg-tertiary .cy-state-layer:focus-within{
+    background-color: rgba(var(--onTertiaryContainer), 0.12);
+}
+.cy-bg-tertiary .cy-state-layer:hover{
+    background-color: rgba(var(--onTertiaryContainer), 0.08);
+}
+.cy-bg-tertiary .cy-state-layer:focus{
+    background-color: rgba(var(--onTertiaryContainer), 0.12);
+}
+.cy-bg-tertiary .cy-state-layer:focus-visible{
+    background-color: rgba(var(--onTertiaryContainer), 0.12);
+}
+.cy-bg-tertiary .cy-state-layer:active::after{
+    content: var(--tw-content);
+    background-color: rgba(var(--onTertiaryContainer), 0.12);
 }

@@ -3588,5 +3588,18 @@ Card.Action = function (_a) {
     return (jsx("div", __assign({ className: "cy-card-action" }, { children: children }), void 0));
 };
 
-export { Button, Card, useThemeEngine };
+function FloatingActionButton(_a) {
+    var _b = _a.size, size = _b === void 0 ? "md" : _b, children = _a.children, _c = _a.type, type = _c === void 0 ? "surface" : _c, rest = __rest(_a, ["size", "children", "type"]);
+    return (jsx("button", __assign({ className: "cy-fab ".concat(size === "sm"
+            ? "cy-fab-sm"
+            : size === "md"
+                ? "cy-fab-md"
+                : "cy-fab-lg", " ").concat(type === "surface"
+            ? "cy-bg-primary"
+            : type === "secondary"
+                ? "cy-bg-secondary"
+                : "cy-bg-tertiary") }, rest, { children: jsx("span", __assign({ className: "cy-state-layer" }, { children: jsx("span", __assign({ className: "cy-padding-layer" }, { children: children }), void 0) }), void 0) }), void 0));
+}
+
+export { Button, Card, FloatingActionButton as FAB, useThemeEngine };
 //# sourceMappingURL=index.js.map

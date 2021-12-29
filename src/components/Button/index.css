@@ -1,0 +1,56 @@
+@layer components {
+    .cy-button-filled {
+        @apply font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center hover:shadow-elevation1 cursor-pointer disabled:cursor-default disabled:!text-onBackground disabled:hover:shadow-none disabled:!bg-disabled/20 disabled:opacity-60;
+    }
+    .cy-button-filled.cy-button-primary {
+        @apply bg-primary text-onPrimary;
+    }
+    .cy-button-filled.cy-button-secondary {
+        @apply bg-secondary text-onSecondary;
+    }
+    .cy-button-filled.cy-button-tertiary {
+        @apply bg-tertiary text-onTertiary;
+    }
+    .cy-button-filled.cy-button-error {
+        @apply bg-error text-onError;
+    }
+    .cy-button-sm {
+        @apply text-labelSmall px-[10px] py-[6px];
+    }
+    .cy-button-md {
+        @apply text-labelMedium px-[15px] py-[8px];
+    }
+    .cy-button-lg {
+        @apply text-labelLarge px-[25px] py-[10px];
+    }
+    .cy-button-outline {
+        @apply border-[1.5px] relative border-outline border-solid rounded cursor-pointer font-sans font-medium bg-background transition-all duration-150 flex gap-2 justify-center items-center disabled:cursor-default disabled:!text-onBackground disabled:!border-disabled disabled:opacity-50 disabled:hover:!bg-tranparent;
+    }
+    .cy-button-outline.cy-button-primary {
+        @apply text-primary hover:bg-primary/10 active:border-primary;
+    }
+    .cy-button-outline.cy-button-secondary {
+        @apply text-secondary hover:bg-secondary/10 active:border-secondary;
+    }
+    .cy-button-outline.cy-button-tertiary {
+        @apply text-tertiary hover:bg-tertiary/10 active:border-tertiary;
+    }
+    .cy-button-outline.cy-button-error {
+        @apply text-error hover:bg-error/10 active:border-error;
+    }
+    .cy-button-text {
+        @apply bg-tranparent relative border-none font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center cursor-pointer disabled:!text-onBackground disabled:opacity-50 disabled:cursor-default disabled:hover:!bg-tranparent;
+    }
+    .cy-button-text.cy-button-primary {
+        @apply text-primary hover:bg-primary/[0.08] active:bg-primary/[0.15];
+    }
+    .cy-button-text.cy-button-secondary {
+        @apply text-secondary hover:bg-secondary/[0.08] active:bg-secondary/[0.15];
+    }
+    .cy-button-text.cy-button-tertiary {
+        @apply text-tertiary hover:bg-tertiary/[0.08] active:bg-tertiary/[0.15];
+    }
+    .cy-button-text.cy-button-error {
+        @apply text-error hover:bg-error/[0.08] active:bg-error/[0.15];
+    }
+}

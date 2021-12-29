@@ -34,6 +34,8 @@ module.exports = {
             inverseSurface: withOpacity("--inverseSurface"),
             tranparent: "transparent",
             disabled: withOpacity("--disabled"),
+            inherit: "inherit",
+            currentColor: "currentColor",
         },
         boxShadow: {
             elevation1: "var(--elevation1)",
@@ -86,6 +88,15 @@ module.exports = {
         },
         fontFamily: {
             sans: ["Roboto", "sans-serif"],
+        },
+        animation: {
+            ripple: "rippleDrop 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        },
+        keyframes: {
+            rippleDrop: {
+                "0%": { width: "0%", opacity: 0, height: "0%" },
+                "100%": { width: "100%", opacity: 1, height: "100%" },
+            },
         },
     },
     plugins: [],

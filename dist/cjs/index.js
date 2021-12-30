@@ -81,6 +81,28 @@ function __generator(thisArg, body) {
     }
 }
 
+/*
+ Copyright 2020 Google Inc.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
 function __third_party$javascript$safevalues$builders$safe_url_builders_fromBlob(
     e
 ) {
@@ -3592,8 +3614,11 @@ Card.Action = function (_a) {
     return (jsxRuntime.jsx("div", __assign({ className: "cy-card-action" }, { children: children }), void 0));
 };
 
-function FloatingActionButton(_a) {
+function FAB(_a) {
     var _b = _a.size, size = _b === void 0 ? "md" : _b, children = _a.children, _c = _a.type, type = _c === void 0 ? "surface" : _c, rest = __rest(_a, ["size", "children", "type"]);
+    if (!children || !children.type || children.type !== "svg") {
+        throw new Error("ComponentYou: FAB Children must be an svg element. Please check your markup.");
+    }
     return (jsxRuntime.jsx("button", __assign({ className: "cy-fab ".concat(size === "sm"
             ? "cy-fab-sm"
             : size === "md"
@@ -3605,8 +3630,32 @@ function FloatingActionButton(_a) {
                 : "cy-bg-tertiary") }, rest, { children: jsxRuntime.jsx("span", __assign({ className: "cy-state-layer" }, { children: jsxRuntime.jsx("span", __assign({ className: "cy-padding-layer" }, { children: children }), void 0) }), void 0) }), void 0));
 }
 
+var ExtendedFAB = function (_a) {
+    var children = _a.children, _b = _a.type, type = _b === void 0 ? "surface" : _b, style = _a.style, rest = __rest(_a, ["children", "type", "style"]);
+    var ref = react.useRef();
+    var _c = react.useState(0), width = _c[0], setWidth = _c[1];
+    react.useLayoutEffect(function () {
+        var _a;
+        setWidth(((_a = ref.current) === null || _a === void 0 ? void 0 : _a.offsetWidth) || 80);
+    }, [ref.current]);
+    return (jsxRuntime.jsx("button", __assign({ className: "cy-fab cy-fab-extended ".concat(type === "surface"
+            ? "cy-bg-primary"
+            : type === "secondary"
+                ? "cy-bg-secondary"
+                : "cy-bg-tertiary"), style: __assign(__assign({}, style), { width: width }) }, rest, { children: jsxRuntime.jsx("span", __assign({ className: "cy-state-layer", ref: ref }, { children: jsxRuntime.jsx("span", __assign({ className: "cy-padding-layer" }, { children: children }), void 0) }), void 0) }), void 0));
+};
+ExtendedFAB.Icon = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("span", __assign({ className: "cy-fab-icon" }, { children: children }), void 0));
+};
+ExtendedFAB.Label = function (_a) {
+    var children = _a.children;
+    return (jsxRuntime.jsx("span", __assign({ className: "cy-fab-label" }, { children: children }), void 0));
+};
+
 exports.Button = Button;
 exports.Card = Card;
-exports.FAB = FloatingActionButton;
+exports.ExtendedFAB = ExtendedFAB;
+exports.FAB = FAB;
 exports.useThemeEngine = useThemeEngine;
 //# sourceMappingURL=index.js.map

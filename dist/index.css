@@ -34,6 +34,37 @@ html {
     --tw-shadow-colored: var(--elevation4);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.cy-fab-extended{
+    height: 56px;
+    min-width: 80px;
+    border-radius: 16px;
+    padding: 0px;
+}
+.cy-fab-extended .cy-fab-label{
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    font-weight: 500;
+}
+.cy-fab-extended .cy-state-layer{
+    display: flex;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    min-width: 80px;
+    justify-content: center;
+}
+.cy-fab-extended .cy-fab-icon svg{
+    height: 24px;
+    width: 24px;
+}
+.cy-fab-extended .cy-padding-layer{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+}
 .cy-fab-md{
     height: 56px;
     width: 56px;

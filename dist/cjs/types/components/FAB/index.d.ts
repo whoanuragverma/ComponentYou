@@ -1,2 +1,3 @@
 import FAB from "./FAB";
-export { FAB };
+import ExtendedFAB from "./ExtendedFAB";
+export { FAB, ExtendedFAB };

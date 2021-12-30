@@ -3,8 +3,8 @@ declare type size = "sm" | "md" | "lg";
 declare type buttonType = "surface" | "secondary" | "tertiary";
 interface FABprops {
     size: size;
-    children: HTMLElement;
+    children: React.ReactElement;
     type: buttonType;
 }
-export default function FloatingActionButton({ size, children, type, ...rest }: FABprops): JSX.Element;
+export default function FAB({ size, children, type, ...rest }: FABprops): JSX.Element;
 export {};

@@ -2,16 +2,21 @@ type size = "sm" | "md" | "lg";
 type buttonType = "surface" | "secondary" | "tertiary";
 interface FABprops {
     size: size;
-    children: HTMLElement;
+    children: React.ReactElement;
     type: buttonType;
 }
 
-export default function FloatingActionButton({
+export default function FAB({
     size = "md",
     children,
     type = "surface",
     ...rest
 }: FABprops) {
+    if (!children || !children.type || children.type !== "svg") {
+        throw new Error(
+            "ComponentYou: FAB Children must be an svg element. Please check your markup."
+        );
+    }
     return (
         <button
             className={`cy-fab ${

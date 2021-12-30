@@ -2,6 +2,21 @@
     .cy-fab {
         @apply border-none shadow-elevation3 hover:shadow-elevation4 transition-all relative;
     }
+    .cy-fab-extended {
+        @apply h-[56px] min-w-[80px] rounded-[16px] p-0;
+    }
+    .cy-fab-extended .cy-fab-label {
+        @apply font-medium font-sans text-labelLarge;
+    }
+    .cy-fab-extended .cy-state-layer {
+        @apply w-fit flex min-w-[80px] justify-center;
+    }
+    .cy-fab-extended .cy-fab-icon svg {
+        @apply w-[24px]  h-[24px];
+    }
+    .cy-fab-extended .cy-padding-layer {
+        @apply p-[16px] flex items-center gap-[12px];
+    }
     .cy-fab-md {
         @apply w-[56px] h-[56px] rounded-[16px];
     }

@@ -6,7 +6,7 @@
         @apply shadow-[0_0_0_1.5px_rgb(var(--outline))] text-onBackground bg-background;
     }
     .cy-card-filled {
-        @apply shadow-elevation1 bg-primaryContainer text-onPrimaryContainer;
+        @apply shadow-shadow1 bg-primaryContainer text-onPrimaryContainer;
     }
     .cy-card-image > img {
         @apply block align-middle;

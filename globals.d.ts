@@ -27,11 +27,11 @@ interface ColorPallete {
 }
 
 interface Shadows {
-    elevation1: string;
-    elevation2: string;
-    elevation3: string;
-    elevation4: string;
-    elevation5: string;
+    shadow1: string;
+    shadow2: string;
+    shadow3: string;
+    shadow4: string;
+    shadow5: string;
     disabled: string;
 }
 interface Theme {

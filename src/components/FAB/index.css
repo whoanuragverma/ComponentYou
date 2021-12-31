@@ -1,6 +1,6 @@
 @layer components {
     .cy-fab {
-        @apply border-none shadow-elevation3 hover:shadow-elevation4 transition-all relative;
+        @apply border-none shadow-shadow3 hover:shadow-shadow4 transition-all relative;
     }
     .cy-fab-extended {
         @apply h-[56px] min-w-[80px] rounded-[16px] p-0;

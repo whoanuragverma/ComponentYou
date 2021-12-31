@@ -1,32 +1,32 @@
 import core from "./core";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 
 export default function useThemeEngine() {
     const [active, setActive] = useState<Mode>("light");
     const [URL, setURL] = useState<string>("");
     const darkShadow: Shadows = {
-        elevation1:
+        shadow1:
             "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
-        elevation2:
+        shadow2:
             "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)",
-        elevation3:
+        shadow3:
             "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
-        elevation4:
+        shadow4:
             "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
-        elevation5:
+        shadow5:
             "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
         disabled: "227, 227, 227",
     };
     const lightShadow: Shadows = {
-        elevation1:
+        shadow1:
             "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
-        elevation2:
+        shadow2:
             "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
-        elevation3:
+        shadow3:
             "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
-        elevation4:
+        shadow4:
             "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
-        elevation5:
+        shadow5:
             "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
         disabled: "31, 31, 31",
     };
@@ -86,7 +86,7 @@ export default function useThemeEngine() {
             inverseSurface: "#e6e1e5",
         },
     });
-    useEffect(() => {
+    useLayoutEffect(() => {
         async function changeTheTheme() {
             const newTheme = await core(URL);
             setTheme(newTheme);
@@ -103,7 +103,7 @@ export default function useThemeEngine() {
               )}, ${parseInt(result[3], 16)}`
             : "0, 0, 0";
     }
-    useEffect(() => {
+    useLayoutEffect(() => {
         const root = document.querySelector<HTMLElement>(":root");
         Object.entries(active === "light" ? theme.light : theme.dark).forEach(
             ([key, val]) => {

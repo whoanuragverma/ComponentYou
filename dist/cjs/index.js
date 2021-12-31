@@ -3458,19 +3458,19 @@ function useThemeEngine() {
     var _a = react.useState("light"), active = _a[0], setActive = _a[1];
     var _b = react.useState(""), URL = _b[0], setURL = _b[1];
     var darkShadow = {
-        elevation1: "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
-        elevation2: "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)",
-        elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
-        elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
-        elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
+        shadow1: "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+        shadow2: "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)",
+        shadow3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
+        shadow4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
+        shadow5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
         disabled: "227, 227, 227",
     };
     var lightShadow = {
-        elevation1: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
-        elevation2: "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
-        elevation3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
-        elevation4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
-        elevation5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
+        shadow1: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
+        shadow2: "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
+        shadow3: "0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3)",
+        shadow4: "0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3)",
+        shadow5: "0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3)",
         disabled: "31, 31, 31",
     };
     var _c = react.useState({
@@ -3529,7 +3529,7 @@ function useThemeEngine() {
             inverseSurface: "#e6e1e5",
         },
     }), theme = _c[0], setTheme = _c[1];
-    react.useEffect(function () {
+    react.useLayoutEffect(function () {
         function changeTheTheme() {
             return __awaiter(this, void 0, void 0, function () {
                 var newTheme;
@@ -3552,7 +3552,7 @@ function useThemeEngine() {
             ? "".concat(parseInt(result[1], 16), ", ").concat(parseInt(result[2], 16), ", ").concat(parseInt(result[3], 16))
             : "0, 0, 0";
     }
-    react.useEffect(function () {
+    react.useLayoutEffect(function () {
         var root = document.querySelector(":root");
         Object.entries(active === "light" ? theme.light : theme.dark).forEach(function (_a) {
             var key = _a[0], val = _a[1];
@@ -3566,23 +3566,41 @@ function useThemeEngine() {
     return [setURL, setActive];
 }
 
-function Button(_a) {
-    var children = _a.children, _b = _a.size, size = _b === void 0 ? "md" : _b, _c = _a.type, type = _c === void 0 ? "primary" : _c, _d = _a.variant, variant = _d === void 0 ? "filled" : _d, rest = __rest(_a, ["children", "size", "type", "variant"]);
-    return (jsxRuntime.jsx("button", __assign({ className: "cy-button ".concat(variant === "filled"
-            ? "cy-button-filled"
-            : variant === "outlined"
-                ? "cy-button-outline"
-                : "cy-button-text", " ").concat(size === "sm"
-            ? "cy-button-sm"
-            : size === "lg"
-                ? "cy-button-lg"
-                : "cy-button-md", " ").concat(type === "primary"
-            ? "cy-button-primary"
-            : type === "secondary"
-                ? "cy-button-secondary"
-                : type === "tertiary"
-                    ? "cy-button-tertiary"
-                    : "cy-button-error") }, rest, { children: children }), void 0));
+function ElevatedButton$1(_a) {
+    var hasIcon = _a.hasIcon, children = _a.children, style = _a.style, rest = __rest(_a, ["hasIcon", "children", "style"]);
+    return (jsxRuntime.jsx("button", __assign({ className: "cy-button cy-button-elevated", style: __assign(__assign({}, style), { paddingLeft: hasIcon ? "16px" : "24px" }) }, rest, { children: children }), void 0));
+}
+
+function FilledButton(_a) {
+    var hasIcon = _a.hasIcon, children = _a.children, style = _a.style, rest = __rest(_a, ["hasIcon", "children", "style"]);
+    var ref = react.useRef();
+    var _b = react.useState(0), width = _b[0], setWidth = _b[1];
+    react.useLayoutEffect(function () {
+        var _a;
+        setWidth(((_a = ref.current) === null || _a === void 0 ? void 0 : _a.offsetWidth) || 80);
+    }, [ref.current]);
+    return (jsxRuntime.jsx("button", __assign({ className: "cy-button cy-button-filled", style: __assign(__assign({}, style), { width: width }) }, rest, { children: jsxRuntime.jsx("span", __assign({ className: "cy-state-layer", ref: ref }, { children: jsxRuntime.jsx("span", __assign({ className: "cy-padding-layer", style: { paddingLeft: hasIcon ? "16px" : "24px" } }, { children: children }), void 0) }), void 0) }), void 0));
+}
+
+function ElevatedButton(_a) {
+    var hasIcon = _a.hasIcon, children = _a.children, style = _a.style, rest = __rest(_a, ["hasIcon", "children", "style"]);
+    var ref = react.useRef();
+    var _b = react.useState(0), width = _b[0], setWidth = _b[1];
+    react.useLayoutEffect(function () {
+        var _a;
+        setWidth(((_a = ref.current) === null || _a === void 0 ? void 0 : _a.offsetWidth) || 80);
+    }, [ref.current]);
+    return (jsxRuntime.jsx("button", __assign({ className: "cy-button cy-button-tonal", style: __assign(__assign({}, style), { width: width }) }, rest, { children: jsxRuntime.jsx("span", __assign({ className: "cy-state-layer", ref: ref }, { children: jsxRuntime.jsx("span", __assign({ className: "cy-padding-layer", style: { paddingLeft: hasIcon ? "16px" : "24px" } }, { children: children }), void 0) }), void 0) }), void 0));
+}
+
+function OutlinedButton(_a) {
+    var hasIcon = _a.hasIcon, children = _a.children, style = _a.style, rest = __rest(_a, ["hasIcon", "children", "style"]);
+    return (jsxRuntime.jsx("button", __assign({ className: "cy-button cy-button-outlined", style: __assign(__assign({}, style), { paddingLeft: hasIcon ? "16px" : "24px" }) }, rest, { children: children }), void 0));
+}
+
+function TextButton(_a) {
+    var hasIcon = _a.hasIcon, children = _a.children, style = _a.style, rest = __rest(_a, ["hasIcon", "children", "style"]);
+    return (jsxRuntime.jsx("button", __assign({ className: "cy-button cy-button-text", style: __assign(__assign({}, style), { paddingLeft: hasIcon ? "12px" : "16px" }) }, rest, { children: children }), void 0));
 }
 
 var Card = function (_a) {
@@ -3653,9 +3671,13 @@ ExtendedFAB.Label = function (_a) {
     return (jsxRuntime.jsx("span", __assign({ className: "cy-fab-label" }, { children: children }), void 0));
 };
 
-exports.Button = Button;
 exports.Card = Card;
+exports.ElevatedButton = ElevatedButton$1;
 exports.ExtendedFAB = ExtendedFAB;
 exports.FAB = FAB;
+exports.FilledButton = FilledButton;
+exports.OutlinedButton = OutlinedButton;
+exports.TextButton = TextButton;
+exports.TonalButton = ElevatedButton;
 exports.useThemeEngine = useThemeEngine;
 //# sourceMappingURL=index.js.map

@@ -38,11 +38,11 @@ module.exports = {
             currentColor: "currentColor",
         },
         boxShadow: {
-            elevation1: "var(--elevation1)",
-            elevation2: "var(--elevation2)",
-            elevation3: "var(--elevation3)",
-            elevation4: "var(--elevation4)",
-            elevation5: "var(--elevation5)",
+            shadow1: "var(--shadow1)",
+            shadow2: "var(--shadow2)",
+            shadow3: "var(--shadow3)",
+            shadow4: "var(--shadow4)",
+            shadow5: "var(--shadow5)",
             none: "none",
         },
         fontSize: {
@@ -87,7 +87,7 @@ module.exports = {
             DEFAULT: "100px",
         },
         fontFamily: {
-            sans: ["Roboto", "sans-serif"],
+            sans: ["Google Sans", "sans-serif"],
         },
         animation: {
             ripple: "rippleDrop 0.2s cubic-bezier(0.4, 0, 0.2, 1)",

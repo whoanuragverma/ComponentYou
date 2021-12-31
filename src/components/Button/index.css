@@ -1,56 +1,47 @@
 @layer components {
+    .cy-button {
+        @apply h-[38px] flex items-center p-0 m-0 rounded-[20px] gap-[8px] font-sans text-labelLarge font-medium border-none relative transition-all cursor-pointer disabled:cursor-auto disabled:bg-onSurface/[0.12] disabled:shadow-none disabled:text-onSurface/[0.38] disabled:hover:!bg-onSurface/[0.12] disabled:hover:shadow-none disabled:hover:text-onSurface/[0.38];
+    }
+    .cy-button-elevated {
+        @apply bg-primary/[0.05] pr-[24px] shadow-shadow1 text-primary hover:bg-primary/[0.08] hover:shadow-shadow2 active:shadow-shadow1 disabled:hover:bg-inherit;
+    }
+    .cy-button svg {
+        @apply w-[18px] h-[18px];
+    }
+    .cy-button span {
+        @apply w-max;
+    }
     .cy-button-filled {
-        @apply font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center hover:shadow-elevation1 cursor-pointer disabled:cursor-default disabled:!text-onBackground disabled:hover:shadow-none disabled:!bg-disabled/20 disabled:opacity-60;
+        @apply bg-primary text-onPrimary hover:shadow-shadow1 active:shadow-none;
     }
-    .cy-button-filled.cy-button-primary {
-        @apply bg-primary text-onPrimary;
+    .cy-button-tonal {
+        @apply bg-secondaryContainer text-onSecondaryContainer hover:shadow-shadow1 relative;
     }
-    .cy-button-filled.cy-button-secondary {
-        @apply bg-secondary text-onSecondary;
+    .cy-button-tonal .cy-state-layer {
+        @apply bg-onSecondaryContainer/[0] hover:bg-onSecondaryContainer/[0.05] transition-all;
     }
-    .cy-button-filled.cy-button-tertiary {
-        @apply bg-tertiary text-onTertiary;
+    .cy-button-filled .cy-state-layer {
+        @apply bg-onPrimary/[0] hover:bg-onPrimary/[0.08] transition-all;
     }
-    .cy-button-filled.cy-button-error {
-        @apply bg-error text-onError;
+    .cy-button-filled:disabled:hover .cy-state-layer {
+        @apply bg-onPrimary/[0] cursor-auto;
     }
-    .cy-button-sm {
-        @apply text-labelSmall px-[10px] py-[6px];
+    .cy-button-tonal:disabled:hover .cy-state-layer {
+        @apply bg-onPrimary/[0] cursor-auto;
     }
-    .cy-button-md {
-        @apply text-labelMedium px-[15px] py-[8px];
+    .cy-button-tonal:focus .cy-state-layer {
+        @apply bg-onSecondaryContainer/[0.08];
     }
-    .cy-button-lg {
-        @apply text-labelLarge px-[25px] py-[10px];
+    .cy-button-tonal:active .cy-state-layer {
+        @apply bg-onSecondaryContainer/[0.12];
     }
-    .cy-button-outline {
-        @apply border-[1.5px] relative border-outline border-solid rounded cursor-pointer font-sans font-medium bg-background transition-all duration-150 flex gap-2 justify-center items-center disabled:cursor-default disabled:!text-onBackground disabled:!border-disabled disabled:opacity-50 disabled:hover:!bg-tranparent;
+    .cy-button .cy-padding-layer {
+        @apply w-max flex items-center gap-[8px] h-full  rounded-[20px] pr-[24px];
     }
-    .cy-button-outline.cy-button-primary {
-        @apply text-primary hover:bg-primary/10 active:border-primary;
-    }
-    .cy-button-outline.cy-button-secondary {
-        @apply text-secondary hover:bg-secondary/10 active:border-secondary;
-    }
-    .cy-button-outline.cy-button-tertiary {
-        @apply text-tertiary hover:bg-tertiary/10 active:border-tertiary;
-    }
-    .cy-button-outline.cy-button-error {
-        @apply text-error hover:bg-error/10 active:border-error;
+    .cy-button-outlined {
+        @apply pr-[24px] bg-tranparent border-[1.5px] border-outline border-solid text-primary hover:bg-primary/[0.05] transition-all outline-none focus:border-primary focus:bg-primary/[0.08] active:bg-primary/[0.12] disabled:bg-tranparent disabled:border-outline/[0.12] disabled:hover:!bg-tranparent;
     }
     .cy-button-text {
-        @apply bg-tranparent relative border-none font-sans transition-all border-0 duration-150 rounded font-medium flex gap-2 justify-center items-center cursor-pointer disabled:!text-onBackground disabled:opacity-50 disabled:cursor-default disabled:hover:!bg-tranparent;
-    }
-    .cy-button-text.cy-button-primary {
-        @apply text-primary hover:bg-primary/[0.08] active:bg-primary/[0.15];
-    }
-    .cy-button-text.cy-button-secondary {
-        @apply text-secondary hover:bg-secondary/[0.08] active:bg-secondary/[0.15];
-    }
-    .cy-button-text.cy-button-tertiary {
-        @apply text-tertiary hover:bg-tertiary/[0.08] active:bg-tertiary/[0.15];
-    }
-    .cy-button-text.cy-button-error {
-        @apply text-error hover:bg-error/[0.08] active:bg-error/[0.15];
+        @apply bg-tranparent text-primary pr-[12px] min-w-[48px] disabled:bg-tranparent disabled:text-primary/[0.38] disabled:hover:!bg-tranparent disabled:disabled:text-onSurface/[0.38] hover:bg-primary/[0.08] focus:bg-primary/[0.11] active:bg-primary/[0.15] transition-all;
     }
 }

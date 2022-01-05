@@ -1,18 +1,30 @@
 /// <reference types="react" />
-declare type cardType = "filled" | "outlined";
-declare type cardOrientation = "landscape" | "portrait";
+declare type cardType = "filled" | "outlined" | "elevated";
 interface cardProps {
+    style: React.CSSProperties;
     type: cardType;
-    orientation: cardOrientation;
+    animated?: boolean;
     children: HTMLElement;
 }
 declare const Card: {
-    ({ type, orientation, children }: cardProps): JSX.Element;
-    Image({ children }: HTMLElement): JSX.Element;
-    Header({ children }: HTMLElement): JSX.Element;
-    Title({ children }: HTMLElement): JSX.Element;
-    SubTitle({ children }: HTMLElement): JSX.Element;
-    Body({ children }: HTMLElement): JSX.Element;
-    Action({ children }: HTMLElement): JSX.Element;
+    ({ type, children, style, animated, }: cardProps): JSX.Element;
+    Flyover({ children, ...rest }: {
+        children: HTMLElement;
+    }): JSX.Element;
+    Image({ children, ...rest }: {
+        children: HTMLElement;
+    }): JSX.Element;
+    Headline({ children, ...rest }: {
+        children: HTMLElement;
+    }): JSX.Element;
+    Subhead({ children, ...rest }: {
+        children: HTMLElement;
+    }): JSX.Element;
+    Body({ children, ...rest }: {
+        children: HTMLElement;
+    }): JSX.Element;
+    Action({ children, ...rest }: {
+        children: HTMLElement;
+    }): JSX.Element;
 };
 export default Card;

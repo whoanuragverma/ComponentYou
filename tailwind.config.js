@@ -94,8 +94,21 @@ module.exports = {
         },
         keyframes: {
             rippleDrop: {
-                "0%": { width: "0%", opacity: 0, height: "0%" },
-                "100%": { width: "100%", opacity: 1, height: "100%" },
+                "0%": {
+                    width: "0%",
+                    opacity: 0,
+                    height: "0%",
+                    borderTopLeftRadius: "30%",
+                },
+                "30%": {
+                    borderTopLeftRadius: "100%",
+                },
+                "100%": {
+                    width: "100%",
+                    opacity: 1,
+                    height: "100%",
+                    borderTopLeftRadius: "6%",
+                },
             },
         },
     },

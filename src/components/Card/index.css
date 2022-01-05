@@ -1,47 +1,35 @@
 @layer utilities {
     .cy-card {
-        @apply w-min rounded-[12px] transition-all duration-150  font-sans;
+        @apply w-min rounded-[12px] transition-all font-sans relative cursor-auto hover:cursor-default !text-onPrimaryContainer;
     }
-    .cy-card-outlined {
-        @apply shadow-[0_0_0_1.5px_rgb(var(--outline))] text-onBackground bg-background;
+    .cy-card > .cy-state-layer > .cy-padding-layer {
+        @apply p-[12px];
     }
-    .cy-card-filled {
-        @apply shadow-shadow1 bg-primaryContainer text-onPrimaryContainer;
+    .cy-card > .cy-state-layer {
+        @apply h-max !cursor-auto hover:!cursor-auto;
     }
-    .cy-card-image > img {
-        @apply block align-middle;
+    .cy-card-elevated > .cy-state-layer {
+        @apply bg-primary/[0.05] shadow-shadow1 transition-all hover:shadow-shadow2;
     }
-    .cy-card-image .rounded-all {
-        @apply rounded-[12px];
+    .cy-card-flyover {
+        @apply flex items-center justify-between mb-2;
     }
-    .cy-card-image .rounded-top {
-        @apply rounded-t-[12px];
+    .cy-card-image img {
+        @apply w-full h-full rounded-[12px] object-cover;
     }
-    .cy-card-image .rounded-bottom {
-        @apply rounded-b-[12px];
+    .cy-card-headline {
+        @apply text-headlineMedium mt-1;
     }
-    .cy-card-image .rounded-left {
-        @apply rounded-l-[12px];
-    }
-    .cy-card-image .rounded-right {
-        @apply rounded-r-[12px];
-    }
-    .cy-card-header {
-        @apply px-3 pt-2 block;
-    }
-    .cy-card-title {
-        @apply text-headlineSmall font-medium block;
-    }
-    .cy-card-subtitle {
-        @apply text-titleMedium block font-light;
+    .cy-card-subhead {
+        @apply text-labelLarge font-light;
     }
     .cy-card-body {
-        @apply px-3 pb-1 text-bodyMedium;
+        @apply text-bodyMedium font-light  my-1;
     }
     .cy-card-action {
-        @apply pb-2 px-3;
+        @apply flex items-center;
     }
-    .cy-card-landscape.cy-card {
-        @apply flex min-w-max;
+    .cy-card-outlined > .cy-state-layer > .cy-padding-layer {
+        @apply border-[1.5px] border-outline border-solid rounded-[inherit];
     }
 }

@@ -25,4 +25,16 @@ declare const ExtendedFAB: {
     Label({ children }: HTMLElement): JSX.Element;
 };
 
-export { ExtendedFAB, FAB, useThemeEngine };
+declare function Bobble({ children, width, height, }: {
+    children: React.ReactNode;
+    width: number | string;
+    height: number | string;
+}): JSX.Element;
+
+declare function Teardrop({ children, width, height, }: {
+    children: React.ReactNode;
+    width: number | string;
+    height: number | string;
+}): JSX.Element;
+
+export { Bobble, ExtendedFAB, FAB, Teardrop, useThemeEngine };

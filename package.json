@@ -32,5 +32,8 @@
     "files": [
         "dist"
     ],
-    "types": "dist/index.d.ts"
+    "types": "dist/index.d.ts",
+    "dependencies": {
+        "rollup-plugin-svg": "^2.0.0"
+    }
 }

@@ -1,0 +1,10 @@
+@layer components {
+    .cy-shape {
+        @apply block;
+    }
+    .cy-shape-wrapper > svg {
+        width: 0;
+        height: 0;
+        display: inherit;
+    }
+}

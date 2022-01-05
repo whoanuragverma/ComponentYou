@@ -2,10 +2,12 @@
 @import "./FAB/index.css";
 @import "./Button/index.css";
 @import "./Card/index.css";
+@import "./Shape/index.css";
 html {
     background: rgb(var(--background));
     color: rgb(var(--onBackground));
     margin: 2rem;
+    height: 200vh;
 }
 
 @tailwind components;
@@ -18,6 +20,9 @@ html {
     .cy-state-layer {
         @apply absolute top-0 right-0 bottom-0 left-0 block w-full h-full rounded-[inherit] transition-all hover:cursor-pointer active:after:animate-ripple;
     }
+    .cy-no-animate .cy-state-layer {
+        @apply active:after:hidden;
+    }
     .cy-state-layer::after {
         @apply content-[""] absolute bottom-0 right-0 rounded-[inherit] w-0 h-0 transform;
     }
@@ -27,11 +32,23 @@ html {
     .cy-bg-primary {
         @apply bg-primaryContainer text-onPrimaryContainer;
     }
+    .cy-bg-elevated {
+        @apply bg-primaryContainer/[0.05] text-onPrimaryContainer;
+    }
     .cy-bg-primary .cy-state-layer {
         @apply bg-onPrimaryContainer/[0] hover:bg-onPrimaryContainer/[0.08] focus:bg-onPrimaryContainer/[0.12] focus-within:bg-onPrimaryContainer/[0.12] focus-visible:bg-onPrimaryContainer/[0.12] active:after:bg-onPrimaryContainer/[0.12];
     }
+    .cy-bg-elevated > .cy-state-layer {
+        @apply bg-primary/[0.05] hover:bg-primary/[0.08] focus:bg-primary/[0.12] focus-within:bg-primary/[0.12] focus-visible:bg-primary/[0.12] active:after:bg-primary/[0.12];
+    }
+    .cy-card-filled > .cy-state-layer {
+        @apply bg-surfaceVariant active:after:bg-onSurfaceVariant/[0.12] text-onSurfaceVariant;
+    }
     .cy-bg-secondary {
         @apply bg-secondaryContainer text-onSecondaryContainer;
+    }
+    .cy-card-outlined > .cy-state-layer {
+        @apply bg-surface hover:bg-onSurface/[0.08] focus:bg-onSurface/[0.12] focus-within:bg-onSurface/[0.12] focus-visible:bg-onSurface/[0.12] active:after:bg-onSurface/[0.12] text-onSurface;
     }
     .cy-bg-secondary .cy-state-layer {
         @apply bg-onSecondaryContainer/[0] hover:bg-onSecondaryContainer/[0.08] focus:bg-onSecondaryContainer/[0.12] focus-within:bg-onSecondaryContainer/[0.12] focus-visible:bg-onSecondaryContainer/[0.12] active:after:bg-onSecondaryContainer/[0.12];

@@ -18,6 +18,7 @@ html {
     background: rgb(var(--background));
     color: rgb(var(--onBackground));
     margin: 2rem;
+    height: 200vh;
 }
 .cy-fab{
     position: relative;
@@ -301,97 +302,105 @@ html {
 .cy-button-text:hover:disabled{
     background-color: transparent !important;
 }
+.cy-shape{
+    display: block;
+}
+.cy-shape-wrapper > svg {
+        width: 0;
+        height: 0;
+        display: inherit;
+    }
+.transform{
+    transform: var(--tw-transform);
+}
 .outline{
     outline-style: solid;
 }
 .cy-card{
+    position: relative;
     width: -webkit-min-content;
     width: -moz-min-content;
     width: min-content;
+    cursor: auto;
     border-radius: 12px;
     font-family: Google Sans, sans-serif;
+    --tw-text-opacity: 1 !important;
+    color: rgba(var(--onPrimaryContainer), var(--tw-text-opacity)) !important;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
-.cy-card-outlined{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--background), var(--tw-bg-opacity));
-    --tw-text-opacity: 1;
-    color: rgba(var(--onBackground), var(--tw-text-opacity));
-    --tw-shadow: 0 0 0 1.5px rgb(var(--outline));
-    --tw-shadow-colored: 0 0 0 1.5px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.cy-card:hover{
+    cursor: default;
 }
-.cy-card-filled{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--primaryContainer), var(--tw-bg-opacity));
-    --tw-text-opacity: 1;
-    color: rgba(var(--onPrimaryContainer), var(--tw-text-opacity));
+.cy-card > .cy-state-layer > .cy-padding-layer{
+    padding: 12px;
+}
+.cy-card > .cy-state-layer{
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    cursor: auto !important;
+}
+.cy-card > .cy-state-layer:hover{
+    cursor: auto !important;
+}
+.cy-card-elevated > .cy-state-layer{
+    background-color: rgba(var(--primary), 0.05);
     --tw-shadow: var(--shadow1);
     --tw-shadow-colored: var(--shadow1);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
 }
-.cy-card-image > img{
-    display: block;
-    vertical-align: middle;
+.cy-card-elevated > .cy-state-layer:hover{
+    --tw-shadow: var(--shadow2);
+    --tw-shadow-colored: var(--shadow2);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.cy-card-image .rounded-all{
+.cy-card-flyover{
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cy-card-image img{
+    height: 100%;
+    width: 100%;
     border-radius: 12px;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
-.cy-card-image .rounded-top{
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+.cy-card-headline{
+    margin-top: 0.25rem;
+    font-size: 28px;
+    line-height: 36px;
 }
-.cy-card-image .rounded-bottom{
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-.cy-card-image .rounded-left{
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-.cy-card-image .rounded-right{
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-.cy-card-header{
-    display: block;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    padding-top: 0.5rem;
-}
-.cy-card-title{
-    display: block;
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 500;
-}
-.cy-card-subtitle{
-    display: block;
+.cy-card-subhead{
     font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.15px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
     font-weight: 300;
 }
 .cy-card-body{
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    padding-bottom: 0.25rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.25px;
+    font-weight: 300;
 }
 .cy-card-action{
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-    padding-bottom: 0.5rem;
-}
-.cy-card-landscape.cy-card{
     display: flex;
-    min-width: -webkit-max-content;
-    min-width: -moz-max-content;
-    min-width: max-content;
+    align-items: center;
+}
+.cy-card-outlined > .cy-state-layer > .cy-padding-layer{
+    border-radius: inherit;
+    border-width: 1.5px;
+    border-style: solid;
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--outline), var(--tw-border-opacity));
 }
 * {
         -webkit-tap-highlight-color: transparent;
@@ -419,12 +428,18 @@ html {
         width: 0%;
         opacity: 0;
         height: 0%;
+        border-top-left-radius: 30%;
+    }
+    30%{
+        content: var(--tw-content);
+        border-top-left-radius: 100%;
     }
     100%{
         content: var(--tw-content);
         width: 100%;
         opacity: 1;
         height: 100%;
+        border-top-left-radius: 6%;
     }
 }
 @keyframes rippleDrop{
@@ -433,18 +448,28 @@ html {
         width: 0%;
         opacity: 0;
         height: 0%;
+        border-top-left-radius: 30%;
+    }
+    30%{
+        content: var(--tw-content);
+        border-top-left-radius: 100%;
     }
     100%{
         content: var(--tw-content);
         width: 100%;
         opacity: 1;
         height: 100%;
+        border-top-left-radius: 6%;
     }
 }
 .cy-state-layer:active::after{
     content: var(--tw-content);
     -webkit-animation: rippleDrop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             animation: rippleDrop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cy-no-animate .cy-state-layer:active::after{
+    content: var(--tw-content);
+    display: none;
 }
 .cy-state-layer::after{
     position: absolute;
@@ -463,6 +488,11 @@ html {
 .cy-bg-primary{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--primaryContainer), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onPrimaryContainer), var(--tw-text-opacity));
+}
+.cy-bg-elevated{
+    background-color: rgba(var(--primaryContainer), 0.05);
     --tw-text-opacity: 1;
     color: rgba(var(--onPrimaryContainer), var(--tw-text-opacity));
 }
@@ -485,11 +515,62 @@ html {
     content: var(--tw-content);
     background-color: rgba(var(--onPrimaryContainer), 0.12);
 }
+.cy-bg-elevated > .cy-state-layer{
+    background-color: rgba(var(--primary), 0.05);
+}
+.cy-bg-elevated > .cy-state-layer:focus-within{
+    background-color: rgba(var(--primary), 0.12);
+}
+.cy-bg-elevated > .cy-state-layer:hover{
+    background-color: rgba(var(--primary), 0.08);
+}
+.cy-bg-elevated > .cy-state-layer:focus{
+    background-color: rgba(var(--primary), 0.12);
+}
+.cy-bg-elevated > .cy-state-layer:focus-visible{
+    background-color: rgba(var(--primary), 0.12);
+}
+.cy-bg-elevated > .cy-state-layer:active::after{
+    content: var(--tw-content);
+    background-color: rgba(var(--primary), 0.12);
+}
+.cy-card-filled > .cy-state-layer{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--surfaceVariant), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onSurfaceVariant), var(--tw-text-opacity));
+}
+.cy-card-filled > .cy-state-layer:active::after{
+    content: var(--tw-content);
+    background-color: rgba(var(--onSurfaceVariant), 0.12);
+}
 .cy-bg-secondary{
     --tw-bg-opacity: 1;
     background-color: rgba(var(--secondaryContainer), var(--tw-bg-opacity));
     --tw-text-opacity: 1;
     color: rgba(var(--onSecondaryContainer), var(--tw-text-opacity));
+}
+.cy-card-outlined > .cy-state-layer{
+    --tw-bg-opacity: 1;
+    background-color: rgba(var(--surface), var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgba(var(--onSurface), var(--tw-text-opacity));
+}
+.cy-card-outlined > .cy-state-layer:focus-within{
+    background-color: rgba(var(--onSurface), 0.12);
+}
+.cy-card-outlined > .cy-state-layer:hover{
+    background-color: rgba(var(--onSurface), 0.08);
+}
+.cy-card-outlined > .cy-state-layer:focus{
+    background-color: rgba(var(--onSurface), 0.12);
+}
+.cy-card-outlined > .cy-state-layer:focus-visible{
+    background-color: rgba(var(--onSurface), 0.12);
+}
+.cy-card-outlined > .cy-state-layer:active::after{
+    content: var(--tw-content);
+    background-color: rgba(var(--onSurface), 0.12);
 }
 .cy-bg-secondary .cy-state-layer{
     background-color: rgba(var(--onSecondaryContainer), 0);

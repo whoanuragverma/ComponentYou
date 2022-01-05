@@ -40,3 +40,8 @@ interface Theme {
 }
 
 type Mode = "light" | "dark";
+
+declare module "*.svg" {
+    const content: any;
+    export default content;
+}

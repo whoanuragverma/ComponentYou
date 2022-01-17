@@ -91,8 +91,31 @@ module.exports = {
         },
         animation: {
             ripple: "rippleDrop 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+            activeButton:
+                "activeButtonExpand 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+            activeSideBar:
+                "activeButtonExpandSide 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards",
         },
         keyframes: {
+            activeButtonExpand: {
+                "0%": {
+                    padding: "0px",
+                    opacity: 0,
+                },
+                "100%": {
+                    padding: "0px 32px",
+                    opacity: 1,
+                },
+            },
+            activeButtonExpandSide: {
+                "0%": {
+                    padding: "0px",
+                },
+                "100%": {
+                    padding: "0px 20px",
+                },
+            },
+
             rippleDrop: {
                 "0%": {
                     width: "0%",
@@ -107,7 +130,7 @@ module.exports = {
                     width: "100%",
                     opacity: 1,
                     height: "100%",
-                    borderTopLeftRadius: "6%",
+                    borderTopLeftRadius: "16px",
                 },
             },
         },

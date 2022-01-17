@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import * as react from 'react';
-import react__default from 'react';
+import react__default, { ReactElement } from 'react';
 
 declare function useThemeEngine(): (react.Dispatch<react.SetStateAction<Mode>> | react.Dispatch<react.SetStateAction<string>>)[];
 
@@ -25,6 +25,39 @@ declare const ExtendedFAB: {
     Label({ children }: HTMLElement): JSX.Element;
 };
 
+declare const BottomNavBar: {
+    ({ children, style, ...rest }: {
+        children: React.ReactNode;
+        style: React.CSSProperties;
+    }): JSX.Element;
+    Item({ children, active, ...rest }: BottomNavBarItems): JSX.Element;
+    Label({ children, ...rest }: {
+        children: React.ReactNode;
+    }): JSX.Element;
+};
+interface BottomNavBarItems {
+    children: React.ReactNode;
+    active: boolean;
+}
+
+interface NavRailProps {
+    children: ReactElement<any, string>;
+}
+declare const NavRail: {
+    ({ children, ...rest }: NavRailProps): JSX.Element;
+    PrimaryButtons({ children, ...rest }: NavRailPrimaryButtonProps): JSX.Element;
+    SecondaryButtons({ children, ...rest }: NavRailSecondaryButtonProps): JSX.Element;
+    Button({ children, label, active, ...rest }: NavRailLabelProps): JSX.Element;
+};
+interface NavRailPrimaryButtonProps extends NavRailProps {
+}
+interface NavRailSecondaryButtonProps extends NavRailProps {
+}
+interface NavRailLabelProps extends NavRailProps {
+    label: string;
+    active: boolean;
+}
+
 declare function Bobble({ children, width, height, }: {
     children: React.ReactNode;
     width: number | string;
@@ -37,4 +70,4 @@ declare function Teardrop({ children, width, height, }: {
     height: number | string;
 }): JSX.Element;
 
-export { Bobble, ExtendedFAB, FAB, Teardrop, useThemeEngine };
+export { Bobble, BottomNavBar, ExtendedFAB, FAB, NavRail, Teardrop, useThemeEngine };

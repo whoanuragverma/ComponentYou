@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600&display=swap");
 @import "./FAB/index.css";
 @import "./Button/index.css";
 @import "./Card/index.css";
 @import "./Shape/index.css";
+@import "./Navbar/index.css";
 html {
     background: rgb(var(--background));
     color: rgb(var(--onBackground));

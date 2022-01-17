@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react';
+import { useState, useLayoutEffect, useRef, Children, useEffect } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
 
 /*! *****************************************************************************
@@ -3540,7 +3540,10 @@ function useThemeEngine() {
                 });
             });
         }
-        changeTheTheme();
+        if (URL !== "" && URL !== undefined) {
+            console.log("URL", URL);
+            changeTheTheme();
+        }
     }, [URL]);
     function hexToRgb(hex) {
         var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -3605,7 +3608,7 @@ var Card = function (_a) {
             ? "cy-bg-elevated cy-card-elevated"
             : type === "filled"
                 ? "cy-card-filled"
-                : "cy-card-outlined", " ").concat(!animated && "cy-no-animate"), style: __assign({}, style) }, { children: jsx("span", __assign({ className: "cy-state-layer" }, { children: jsx("span", __assign({ className: "cy-padding-layer" }, { children: children }), void 0) }), void 0) }), void 0));
+                : "cy-card-outlined", " ").concat(animated ? "cy-no-animate" : ""), style: __assign({}, style) }, { children: jsx("span", __assign({ className: "cy-state-layer" }, { children: jsx("span", __assign({ className: "cy-padding-layer" }, { children: children }), void 0) }), void 0) }), void 0));
 };
 Card.Flyover = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
@@ -3671,10 +3674,53 @@ ExtendedFAB.Label = function (_a) {
     return (jsx("span", __assign({ className: "cy-fab-label" }, { children: children }), void 0));
 };
 
-let lastID = 0;
+var BottomNavBar = function (_a) {
+    var children = _a.children, style = _a.style, rest = __rest(_a, ["children", "style"]);
+    return (jsx("div", __assign({ className: "cy-nav-bottom" }, rest, { style: __assign(__assign({}, style), { gridTemplateColumns: "repeat(".concat(Children.count(children), ", minmax(0px, 1fr))") }) }, { children: children }), void 0));
+};
+BottomNavBar.Item = function (_a) {
+    var children = _a.children, _b = _a.active, active = _b === void 0 ? false : _b, rest = __rest(_a, ["children", "active"]);
+    return (jsx("div", __assign({ className: "cy-nav-bottom-item ".concat(active ? "cy-nav-bottom-item-active" : "") }, rest, { tabIndex: 0 }, { children: children }), void 0));
+};
+BottomNavBar.Label = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return (jsx("span", __assign({ className: "cy-nav-bottom-label" }, rest, { children: children }), void 0));
+};
 
-function newID(prefix = "cy") {
-    return `${prefix}-${lastID++}`;
+var NavRail = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    var body = document.querySelector("body");
+    useEffect(function () {
+        if (body) {
+            body.style.marginLeft = "80px";
+            body.style.width = "calc(100% - 80px)";
+        }
+        return function () {
+            if (body) {
+                body.style.marginLeft = "0px";
+                body.style.width = "100%";
+            }
+        };
+    }, []);
+    return (jsx("div", __assign({ className: "cy-nav-rail" }, rest, { children: children }), void 0));
+};
+NavRail.PrimaryButtons = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return (jsx("div", __assign({ className: "cy-nav-rail-primary-buttons" }, rest, { children: children }), void 0));
+};
+NavRail.SecondaryButtons = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return (jsx("div", __assign({ className: "cy-nav-rail-secondary-buttons" }, rest, { children: children }), void 0));
+};
+NavRail.Button = function (_a) {
+    var children = _a.children, label = _a.label, _b = _a.active, active = _b === void 0 ? false : _b, rest = __rest(_a, ["children", "label", "active"]);
+    return (jsxs("div", __assign({ className: "cy-nav-rail-button ".concat(active ? "active" : "") }, rest, { children: [jsx("div", __assign({ className: "cy-nav-rail-button-icon", tabIndex: 0 }, { children: children }), void 0), jsx("div", __assign({ className: "cy-nav-rail-label" }, { children: label }), void 0)] }), void 0));
+};
+
+var lastID = 0;
+function newID(prefix) {
+    if (prefix === void 0) { prefix = "cy"; }
+    return "".concat(prefix, "-").concat(lastID++);
 }
 
 function Bobble(_a) {
@@ -3697,5 +3743,5 @@ function Teardrop(_a) {
                 } }, { children: children }), void 0)] }), void 0));
 }
 
-export { Bobble, Card, ElevatedButton$1 as ElevatedButton, ExtendedFAB, FAB, FilledButton, OutlinedButton, Teardrop, TextButton, ElevatedButton as TonalButton, useThemeEngine };
+export { Bobble, BottomNavBar, Card, ElevatedButton$1 as ElevatedButton, ExtendedFAB, FAB, FilledButton, NavRail, OutlinedButton, Teardrop, TextButton, ElevatedButton as TonalButton, useThemeEngine };
 //# sourceMappingURL=index.js.map

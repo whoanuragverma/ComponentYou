@@ -1,0 +1,48 @@
+@layer utilities {
+    .cy-nav-bottom {
+        @apply fixed bottom-0 left-0 right-0 w-full justify-evenly min-h-[70px] grid grid-flow-col bg-surface;
+    }
+    .cy-nav-bottom-item {
+        @apply min-w-[48px] pt-[16px] pb-[16px] flex items-center cursor-pointer hover:bg-onSurface/[0.11] transition-all flex-col gap-[6px] focus:bg-onSurface/[0.11] justify-center bg-primary/[0.08];
+    }
+    .cy-nav-bottom-item svg {
+        @apply w-[18px] h-[18px] text-onSurfaceVariant;
+    }
+    .cy-nav-bottom-label {
+        @apply font-sans text-labelMedium text-onSurfaceVariant;
+    }
+    .cy-nav-bottom-item-active {
+        @apply text-onSurface font-medium;
+    }
+    .cy-nav-bottom-item-active::after {
+        content: "";
+        @apply absolute h-[30px] top-[10px] bg-secondaryContainer rounded-[16px] z-[1] animate-activeButton;
+    }
+    .cy-nav-bottom-item-active svg {
+        @apply text-onSecondaryContainer z-[2];
+    }
+    .cy-nav-rail {
+        @apply fixed top-0 left-0 bg-surface text-onSurface font-sans h-full transition-all flex flex-col items-center box-border;
+    }
+    .cy-nav-rail-primary-buttons {
+        @apply flex flex-col justify-center items-center p-4 gap-y-[12px] pt-16;
+    }
+    .cy-nav-rail-secondary-buttons {
+        @apply w-full pt-4 gap-y-1 flex flex-col;
+    }
+    .cy-nav-rail-button {
+        @apply w-full flex h-[56px] items-center justify-center text-onSurface font-medium text-center gap-[2px] hover:bg-onSurface/[0.08] transition-all focus-within:bg-onSurface/[0.11] flex-col relative;
+    }
+    .active > .cy-nav-rail-button-icon {
+        @apply h-[28px] bg-secondaryContainer rounded-[16px] animate-activeSideBar flex items-center;
+    }
+    .cy-nav-rail-button-icon > svg {
+        @apply w-[16px] h-[16px];
+    }
+    .cy-nav-rail-label {
+        @apply font-sans text-labelMedium text-onSurfaceVariant;
+    }
+    .active > .cy-nav-rail-label {
+        @apply font-medium;
+    }
+}

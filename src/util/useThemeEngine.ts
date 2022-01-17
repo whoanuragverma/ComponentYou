@@ -91,8 +91,10 @@ export default function useThemeEngine() {
             const newTheme = await core(URL);
             setTheme(newTheme);
         }
-
-        changeTheTheme();
+        if (URL !== "" && URL !== undefined) {
+            console.log("URL", URL);
+            changeTheTheme();
+        }
     }, [URL]);
     function hexToRgb(hex: string) {
         var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);

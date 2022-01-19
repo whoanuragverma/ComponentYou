@@ -3674,32 +3674,28 @@ ExtendedFAB.Label = function (_a) {
     return (jsx("span", __assign({ className: "cy-fab-label" }, { children: children }), void 0));
 };
 
-var BottomNavBar = function (_a) {
+var NavBar = function (_a) {
     var children = _a.children, style = _a.style, rest = __rest(_a, ["children", "style"]);
     return (jsx("div", __assign({ className: "cy-nav-bottom" }, rest, { style: __assign(__assign({}, style), { gridTemplateColumns: "repeat(".concat(Children.count(children), ", minmax(0px, 1fr))") }) }, { children: children }), void 0));
 };
-BottomNavBar.Item = function (_a) {
+NavBar.Item = function (_a) {
     var children = _a.children, _b = _a.active, active = _b === void 0 ? false : _b, rest = __rest(_a, ["children", "active"]);
     return (jsx("div", __assign({ className: "cy-nav-bottom-item ".concat(active ? "cy-nav-bottom-item-active" : "") }, rest, { tabIndex: 0 }, { children: children }), void 0));
 };
-BottomNavBar.Label = function (_a) {
+NavBar.Label = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
     return (jsx("span", __assign({ className: "cy-nav-bottom-label" }, rest, { children: children }), void 0));
 };
 
 var NavRail = function (_a) {
     var children = _a.children, rest = __rest(_a, ["children"]);
-    var body = document.querySelector("body");
+    var body = document.body;
     useEffect(function () {
-        if (body) {
-            body.style.marginLeft = "80px";
-            body.style.width = "calc(100% - 80px)";
-        }
+        body.style.marginLeft = "80px";
+        body.style.width = "calc(100% - 80px)";
         return function () {
-            if (body) {
-                body.style.marginLeft = "0px";
-                body.style.width = "100%";
-            }
+            body.style.marginLeft = "0px";
+            body.style.width = "100%";
         };
     }, []);
     return (jsx("div", __assign({ className: "cy-nav-rail" }, rest, { children: children }), void 0));
@@ -3714,7 +3710,43 @@ NavRail.SecondaryButtons = function (_a) {
 };
 NavRail.Button = function (_a) {
     var children = _a.children, label = _a.label, _b = _a.active, active = _b === void 0 ? false : _b, rest = __rest(_a, ["children", "label", "active"]);
-    return (jsxs("div", __assign({ className: "cy-nav-rail-button ".concat(active ? "active" : "") }, rest, { children: [jsx("div", __assign({ className: "cy-nav-rail-button-icon", tabIndex: 0 }, { children: children }), void 0), jsx("div", __assign({ className: "cy-nav-rail-label" }, { children: label }), void 0)] }), void 0));
+    return (jsxs("div", __assign({ className: "cy-nav-rail-button ".concat(active ? "active" : "") }, rest, { children: [jsx("div", __assign({ className: "cy-nav-rail-button-icon", tabIndex: 0, style: {
+                    height: "".concat(label ? "28px" : "100%"),
+                    borderRadius: "".concat(label ? "16px" : "50%"),
+                } }, { children: children }), void 0), jsx("div", __assign({ className: "cy-nav-rail-label" }, { children: label }), void 0)] }), void 0));
+};
+
+var NavDrawer = function (_a) {
+    var isFlyOver = _a.isFlyOver, children = _a.children, rest = __rest(_a, ["isFlyOver", "children"]);
+    var body = document.body;
+    useEffect(function () {
+        if (!isFlyOver) {
+            body.style.marginLeft = "300px";
+            body.style.width = "calc(100% - 300px)";
+        }
+        return function () {
+            if (!isFlyOver) {
+                body.style.marginLeft = "0px";
+                body.style.width = "100%";
+            }
+        };
+    });
+    return (jsx("nav", __assign({ className: "".concat(isFlyOver ? "cy-nav-flyover" : "") }, rest, { children: jsx("div", __assign({ className: "cy-nav-drawer" }, { children: jsx("div", { children: children }, void 0) }), void 0) }), void 0));
+};
+NavDrawer.Title = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return (jsx("div", __assign({ className: "cy-nav-drawer-title" }, rest, { children: children }), void 0));
+};
+NavDrawer.Label = function (_a) {
+    var children = _a.children, rest = __rest(_a, ["children"]);
+    return (jsx("div", __assign({ className: "cy-nav-drawer-label" }, rest, { children: children }), void 0));
+};
+NavDrawer.Item = function (_a) {
+    var children = _a.children, _b = _a.active, active = _b === void 0 ? false : _b; __rest(_a, ["children", "active"]);
+    return (jsx("div", __assign({ className: "cy-nav-drawer-item ".concat(active ? "active" : ""), tabIndex: 0 }, { children: children }), void 0));
+};
+NavDrawer.Divider = function () {
+    return jsx("hr", { className: "cy-divider" }, void 0);
 };
 
 var lastID = 0;
@@ -3735,13 +3767,12 @@ function Bobble(_a) {
 
 function Teardrop(_a) {
     var children = _a.children, width = _a.width, height = _a.height;
-    var ID = newID("cy-shape-bobble");
-    return (jsxs("div", __assign({ className: "cy-shape-wrapper" }, { children: [jsx("svg", { children: jsx("defs", { children: jsx("clipPath", __assign({ id: ID, clipPathUnits: "objectBoundingBox", transform: "scale(0.027027027, 0.027027027)" }, { children: jsx("path", { d: "M18.3983 35.8016L19.2391 35.7712C28.5269 35.4352 35.9091 27.8558 36.0002 18.5622C36.0943 8.95807 28.3849 1.09605 18.7807 1.00194L4.70236 0.863973C3.30328 0.850262 2.02812 1.66413 1.4514 2.93889C1.24936 3.38549 1.14253 3.86927 1.13772 4.35943L1.04123 14.2058L0.964768 22.0087L1.04938 23.1782C1.11292 24.0564 1.27818 24.9243 1.54184 25.7645C2.10536 27.5601 3.10541 29.1879 4.45244 30.5022L4.82261 30.8634C5.93249 31.9463 7.22148 32.8288 8.63248 33.4719L10.16 34.1681C12.742 35.3449 15.5626 35.9042 18.3983 35.8016Z" }, void 0) }), void 0) }, void 0) }, void 0), jsx("div", __assign({ className: "cy-shape", style: {
-                    clipPath: "url(#".concat(ID, ")"),
-                    width: width,
-                    height: height,
-                } }, { children: children }), void 0)] }), void 0));
+    return (jsx("div", __assign({ className: "cy-shape-wrapper" }, { children: jsx("div", __assign({ className: "cy-shape", style: {
+                borderRadius: "15% 50% 50% 50%",
+                width: width,
+                height: height,
+            } }, { children: children }), void 0) }), void 0));
 }
 
-export { Bobble, BottomNavBar, Card, ElevatedButton$1 as ElevatedButton, ExtendedFAB, FAB, FilledButton, NavRail, OutlinedButton, Teardrop, TextButton, ElevatedButton as TonalButton, useThemeEngine };
+export { Bobble, Card, ElevatedButton$1 as ElevatedButton, ExtendedFAB, FAB, FilledButton, NavBar, NavDrawer, NavRail, OutlinedButton, Teardrop, TextButton, ElevatedButton as TonalButton, useThemeEngine };
 //# sourceMappingURL=index.js.map

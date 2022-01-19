@@ -3,17 +3,14 @@ interface NavRailProps {
     children: ReactElement<any, string>;
 }
 const NavRail = ({ children, ...rest }: NavRailProps) => {
-    const body = document.querySelector("body");
+    const body = document.body;
     useEffect(() => {
-        if (body) {
-            body.style.marginLeft = "80px";
-            body.style.width = "calc(100% - 80px)";
-        }
+        body.style.marginLeft = "80px";
+        body.style.width = "calc(100% - 80px)";
+
         return () => {
-            if (body) {
-                body.style.marginLeft = "0px";
-                body.style.width = "100%";
-            }
+            body.style.marginLeft = "0px";
+            body.style.width = "100%";
         };
     }, []);
     return (
@@ -59,7 +56,14 @@ NavRail.Button = ({
             className={`cy-nav-rail-button ${active ? "active" : ""}`}
             {...rest}
         >
-            <div className="cy-nav-rail-button-icon" tabIndex={0}>
+            <div
+                className="cy-nav-rail-button-icon"
+                tabIndex={0}
+                style={{
+                    height: `${label ? "28px" : "100%"}`,
+                    borderRadius: `${label ? "16px" : "50%"}`,
+                }}
+            >
                 {children}
             </div>
             <div className="cy-nav-rail-label">{label}</div>

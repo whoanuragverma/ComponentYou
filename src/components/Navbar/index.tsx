@@ -1,3 +1,4 @@
-import BottomNavBar from "./BottomNavBar";
+import NavBar from "./NavBar";
 import NavRail from "./NavRail";
-export { BottomNavBar, NavRail };
+import NavDrawer from "./NavDrawer";
+export { NavBar, NavRail, NavDrawer };

@@ -25,7 +25,7 @@ declare const ExtendedFAB: {
     Label({ children }: HTMLElement): JSX.Element;
 };
 
-declare const BottomNavBar: {
+declare const NavBar: {
     ({ children, style, ...rest }: {
         children: React.ReactNode;
         style: React.CSSProperties;
@@ -58,6 +58,24 @@ interface NavRailLabelProps extends NavRailProps {
     active: boolean;
 }
 
+interface NavDrawerProps {
+    isFlyOver: boolean;
+    children: React.ReactElement;
+}
+declare const NavDrawer: {
+    ({ isFlyOver, children, ...rest }: NavDrawerProps): JSX.Element;
+    Title({ children, ...rest }: NavDrawerTitleProps): JSX.Element;
+    Label({ children, ...rest }: NavDrawerTitleProps): JSX.Element;
+    Item({ children, active, ...rest }: NavDrawerItemProps): JSX.Element;
+    Divider(): JSX.Element;
+};
+interface NavDrawerTitleProps {
+    children: React.ReactElement;
+}
+interface NavDrawerItemProps extends NavDrawerTitleProps {
+    active: boolean;
+}
+
 declare function Bobble({ children, width, height, }: {
     children: React.ReactNode;
     width: number | string;
@@ -70,4 +88,4 @@ declare function Teardrop({ children, width, height, }: {
     height: number | string;
 }): JSX.Element;
 
-export { Bobble, BottomNavBar, ExtendedFAB, FAB, NavRail, Teardrop, useThemeEngine };
+export { Bobble, ExtendedFAB, FAB, NavBar, NavDrawer, NavRail, Teardrop, useThemeEngine };

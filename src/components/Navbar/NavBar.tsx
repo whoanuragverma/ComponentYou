@@ -1,6 +1,6 @@
 import { Children } from "react";
 
-const BottomNavBar = ({
+const NavBar = ({
     children,
     style,
     ...rest
@@ -28,11 +28,7 @@ interface BottomNavBarItems {
     children: React.ReactNode;
     active: boolean;
 }
-BottomNavBar.Item = ({
-    children,
-    active = false,
-    ...rest
-}: BottomNavBarItems) => {
+NavBar.Item = ({ children, active = false, ...rest }: BottomNavBarItems) => {
     return (
         <div
             className={`cy-nav-bottom-item ${
@@ -46,11 +42,11 @@ BottomNavBar.Item = ({
     );
 };
 
-BottomNavBar.Label = ({ children, ...rest }: { children: React.ReactNode }) => {
+NavBar.Label = ({ children, ...rest }: { children: React.ReactNode }) => {
     return (
         <span className="cy-nav-bottom-label" {...rest}>
             {children}
         </span>
     );
 };
-export default BottomNavBar;
+export default NavBar;

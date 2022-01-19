@@ -25,7 +25,7 @@
         @apply fixed top-0 left-0 bg-surface text-onSurface font-sans h-full transition-all flex flex-col items-center box-border;
     }
     .cy-nav-rail-primary-buttons {
-        @apply flex flex-col justify-center items-center p-4 gap-y-[12px] pt-16;
+        @apply flex flex-col justify-center items-center p-4 gap-y-[12px];
     }
     .cy-nav-rail-secondary-buttons {
         @apply w-full pt-4 gap-y-1 flex flex-col;
@@ -44,5 +44,39 @@
     }
     .active > .cy-nav-rail-label {
         @apply font-medium;
+    }
+    .cy-nav-drawer,
+    .cy-nav-drawer > div {
+        @apply fixed top-0 left-0 bg-surface text-onSurface min-w-[300px] max-w-[80%] h-full p-4 box-border font-sans flex flex-col;
+    }
+    .cy-nav-flyover {
+        @apply fixed w-full h-full top-0 left-0 backdrop-brightness-50;
+    }
+    .cy-nav-flyover > .cy-nav-drawer > div {
+        @apply rounded-r-[22px] bg-primary/[0.08] text-onPrimaryContainer shadow-shadow1;
+    }
+    .cy-nav-flyover > .cy-nav-drawer {
+        @apply rounded-r-[22px] bg-surface;
+    }
+    .cy-nav-drawer-title {
+        @apply flex justify-between items-center text-onSurfaceVariant text-titleLarge font-medium mr-[12px];
+    }
+    .cy-nav-drawer-label {
+        @apply block text-labelLarge my-1;
+    }
+    .cy-nav-drawer-item {
+        @apply pl-[16px] pr-[24px] mr-[12px] text-labelLarge flex items-center h-[48px] rounded gap-2 my-[2px] hover:bg-onPrimaryContainer/[0.08] transition-all cursor-pointer focus:bg-onPrimaryContainer/[0.11];
+    }
+    .active.cy-nav-drawer-item {
+        @apply text-onSecondaryContainer bg-secondaryContainer font-medium;
+    }
+    .cy-nav-drawer-item > svg {
+        @apply w-[24px] h-[24px];
+    }
+    body {
+        @apply transition-all;
+    }
+    .cy-divider {
+        @apply w-full border-0 h-[1px] bg-outline;
     }
 }

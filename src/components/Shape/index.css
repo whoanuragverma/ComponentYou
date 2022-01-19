@@ -7,4 +7,9 @@
         height: 0;
         display: inherit;
     }
+    .cy-shape > * {
+        border-radius: inherit;
+        width: inherit;
+        height: inherit;
+    }
 }

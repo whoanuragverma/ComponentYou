@@ -66,7 +66,7 @@ module.exports = {
                 { letterSpacing: "0.1px", lineHeight: "20px" },
             ],
             labelMedium: [
-                "12px",
+                "14px",
                 { letterSpacing: "0.5px", lineHeight: "16px" },
             ],
             labelSmall: [

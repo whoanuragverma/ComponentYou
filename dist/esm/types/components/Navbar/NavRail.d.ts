@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import React from "react";
 interface NavRailProps {
-    children: ReactElement<any, string>;
+    children: React.ReactNode;
 }
 declare const NavRail: {
     ({ children, ...rest }: NavRailProps): JSX.Element;

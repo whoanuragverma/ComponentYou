@@ -513,6 +513,8 @@
         align-items: center;
         --tw-bg-opacity: 1;
         background-color: rgba(var(--surface), var(--tw-bg-opacity));
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
         font-family: Google Sans, sans-serif;
         --tw-text-opacity: 1;
         color: rgba(var(--onSurface), var(--tw-text-opacity));

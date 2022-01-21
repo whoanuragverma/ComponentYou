@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import * as react from 'react';
-import react__default, { ReactElement } from 'react';
+import react__default from 'react';
 
 declare function useThemeEngine(): (react.Dispatch<react.SetStateAction<Mode>> | react.Dispatch<react.SetStateAction<string>>)[];
 
@@ -28,7 +28,7 @@ declare const ExtendedFAB: {
 declare const NavBar: {
     ({ children, style, ...rest }: {
         children: React.ReactNode;
-        style: React.CSSProperties;
+        style?: react.CSSProperties | undefined;
     }): JSX.Element;
     Item({ children, active, ...rest }: BottomNavBarItems): JSX.Element;
     Label({ children, ...rest }: {
@@ -41,7 +41,7 @@ interface BottomNavBarItems {
 }
 
 interface NavRailProps {
-    children: ReactElement<any, string>;
+    children: react__default.ReactNode;
 }
 declare const NavRail: {
     ({ children, ...rest }: NavRailProps): JSX.Element;

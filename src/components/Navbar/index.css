@@ -22,7 +22,7 @@
         @apply text-onSecondaryContainer z-[2];
     }
     .cy-nav-rail {
-        @apply fixed top-0 left-0 bg-surface text-onSurface font-sans h-full transition-all flex flex-col items-center box-border;
+        @apply fixed top-0 left-0 bg-surface text-onSurface font-sans h-full transition-all flex flex-col items-center box-border px-1;
     }
     .cy-nav-rail-primary-buttons {
         @apply flex flex-col justify-center items-center p-4 gap-y-[12px];

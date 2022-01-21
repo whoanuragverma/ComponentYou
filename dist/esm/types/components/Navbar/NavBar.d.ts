@@ -2,7 +2,7 @@
 declare const NavBar: {
     ({ children, style, ...rest }: {
         children: React.ReactNode;
-        style: React.CSSProperties;
+        style?: import("react").CSSProperties | undefined;
     }): JSX.Element;
     Item({ children, active, ...rest }: BottomNavBarItems): JSX.Element;
     Label({ children, ...rest }: {

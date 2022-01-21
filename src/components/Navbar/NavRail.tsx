@@ -1,6 +1,6 @@
 import React, { useEffect, useState, ReactElement } from "react";
 interface NavRailProps {
-    children: ReactElement<any, string>;
+    children: React.ReactNode;
 }
 const NavRail = ({ children, ...rest }: NavRailProps) => {
     const body = document.body;

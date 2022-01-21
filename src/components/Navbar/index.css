@@ -36,6 +36,9 @@
     .active > .cy-nav-rail-button-icon {
         @apply h-[28px] bg-secondaryContainer rounded-[16px] animate-activeSideBar flex items-center;
     }
+    .cy-nav-rail-button-icon {
+        @apply flex items-center;
+    }
     .cy-nav-rail-button-icon > svg {
         @apply w-[16px] h-[16px];
     }

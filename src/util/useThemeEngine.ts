@@ -1,8 +1,9 @@
+import { useLayoutEffect, useState } from "react";
+
 import core from "./core";
-import { useState, useLayoutEffect } from "react";
 
 export default function useThemeEngine() {
-    const [active, setActive] = useState<Mode>("light");
+    const [active, setActive] = useState<Mode>("dark");
     const [URL, setURL] = useState<string>("");
     const darkShadow: Shadows = {
         shadow1:

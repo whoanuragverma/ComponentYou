@@ -3455,7 +3455,7 @@ function __generatePalleteFromURL(e) {
 var core = __generatePalleteFromURL;
 
 function useThemeEngine() {
-    var _a = react.useState("light"), active = _a[0], setActive = _a[1];
+    var _a = react.useState("dark"), active = _a[0], setActive = _a[1];
     var _b = react.useState(""), URL = _b[0], setURL = _b[1];
     var darkShadow = {
         shadow1: "0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",

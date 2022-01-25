@@ -2,7 +2,12 @@
 import * as react from 'react';
 import react__default from 'react';
 
-declare function useThemeEngine(): (react.Dispatch<react.SetStateAction<Mode>> | react.Dispatch<react.SetStateAction<string>>)[];
+declare const darkShadow: Shadows;
+declare const lightShadow: Shadows;
+declare const defaultTheme: Theme;
+declare function ThemeEngine(url: string): Promise<Theme>;
+
+declare function useThemeEngine(): react.Dispatch<react.SetStateAction<string>>[];
 
 declare type size = "sm" | "md" | "lg";
 declare type buttonType$1 = "surface" | "secondary" | "tertiary";
@@ -88,4 +93,4 @@ declare function Teardrop({ children, width, height, }: {
     height: number | string;
 }): JSX.Element;
 
-export { Bobble, ExtendedFAB, FAB, NavBar, NavDrawer, NavRail, Teardrop, useThemeEngine };
+export { Bobble, ExtendedFAB, FAB, NavBar, NavDrawer, NavRail, Teardrop, ThemeEngine, darkShadow, defaultTheme, lightShadow, useThemeEngine };

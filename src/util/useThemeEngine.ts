@@ -1,3 +1,4 @@
+import { Mode, Shadows, Theme } from "../../globals";
 import { useLayoutEffect, useState } from "react";
 
 import core from "./core";

@@ -1,4 +1,5 @@
 import newID from "../../util/newID";
+
 export default function Bobble({
     children,
     width,
@@ -26,8 +27,8 @@ export default function Bobble({
                 className="cy-shape"
                 style={{
                     clipPath: `url(#${ID})`,
-                    width: width,
-                    height: height,
+                    maxWidth: width,
+                    maxHeight: height,
                 }}
             >
                 {children}
